@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio - Pedro Rodrigues</title>
+    <link rel="icon" type="image/x-icon" href="assets/img/icon.png">
+    <meta name="description" content="Portfólio de Pedro Rodrigues - Desenvolvedor Web Fullstack com mais de 7 anos de experiência">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+        <div class="lang-btn" id="langToggle">BR</div>
+    </div>
+
+    <!-- Modal para Vídeos -->
+    <div class="modal fade" id="projectVideosModal" tabindex="-1" aria-labelledby="projectVideosModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="projectVideosModalLabel"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <!-- Área do vídeo principal -->
+                        <div class="col-lg-8">
+                            <div class="modal-video-container" id="mainVideoContainer">
+                                <!-- O vídeo será inserido aqui via JavaScript -->
+                            </div>
+                            <div class="video-info mt-3">
+                                <h6 id="currentVideoTitle"></h6>
+                                <p class="text-muted small" id="currentVideoDescription"></p>
+                            </div>
+                        </div>
+                        
+                        <!-- Lista de vídeos -->
+                        <div class="col-lg-4">
+                            <h6 data-lang-pt="Vídeos do Projeto" data-lang-en="Project Videos">Vídeos do Projeto</h6>
+                            <div class="video-list" id="videoList">
+                                <!-- A lista de vídeos será inserida aqui via JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-lang-pt="Fechar" data-lang-en="Close">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg bg-nav fixed-top shadow-sm">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#home" data-lang-pt="Início" data-lang-en="Home">Início</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#about" data-lang-pt="Sobre" data-lang-en="About">Sobre</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#skills" data-lang-pt="Habilidades" data-lang-en="Skills">Habilidades</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#projects" data-lang-pt="Projetos" data-lang-en="Projects">Projetos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#contact" data-lang-pt="Contato" data-lang-en="Contact">Contato</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 order-lg-2 text-center mb-5 mb-lg-0">
+                    <img src="assets/img/perfil.jpg" alt="Pedro Rodrigues" class="profile-img rounded-circle">
+                </div>
+                <div class="col-lg-6 order-lg-1">
+                    <h3 class="text-secondary code-font" data-lang-pt="Olá, eu sou" data-lang-en="Hello, I'm">Olá, eu sou</h3>
+                    <h1 class="display-4 fw-bold mb-3">Pedro Rodrigues</h1>
+                    <h2 class="h3 mb-4" data-lang-pt="Desenvolvedor Web Fullstack" data-lang-en="Fullstack Web Developer">Desenvolvedor Web Fullstack</h2>
+                    <p class="lead mb-4" data-lang-pt="Com mais de 7 anos de experiência em desenvolvimento web. Especializado em criar aplicações modernas, responsivas e de alto desempenho." data-lang-en="With over 7 years of experience in web development. Specialized in creating modern, responsive, and high-performance applications.">
+                        Com mais de 7 anos de experiência em desenvolvimento web. Especializado em criar aplicações modernas, responsivas e de alto desempenho.
+                    </p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="#projects" class="btn btn-primary-custom" data-lang-pt="Ver Projetos" data-lang-en="View Projects">Ver Projetos</a>
+                        <a href="#contact" class="btn btn-outline-light" data-lang-pt="Entre em Contato" data-lang-en="Get in Touch">Entre em Contato</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-5">
+        <div class="container py-5">
+            <h2 class="section-title" data-lang-pt="Sobre Mim" data-lang-en="About Me">Sobre Mim</h2>
+            <div class="row">
+                <div class="col-lg-8">
+                    <p data-lang-pt="Meu nome é Pedro Rodrigues. Sou desenvolvedor web com mais de 7 anos de experiência. Tenho facilidade com desenvolvimento front-end, mas também trabalho no back-end. Atualmente estou focado em aprender mais sobre React e Node.js, e busco oportunidades para trabalhar com empresas internacionais." data-lang-en="My name is Pedro Rodrigues. I'm a web developer with over 7 years of experience. I'm proficient in front-end development, but I also work on back-end. Currently, I'm focused on learning more about React and Node.js, and I'm looking for opportunities to work with international companies.">
+                        Meu nome é Pedro Rodrigues. Sou desenvolvedor web com mais de 7 anos de experiência. Tenho facilidade com desenvolvimento front-end, mas também trabalho no back-end. Atualmente estou focado em aprender mais sobre React e Node.js, e busco oportunidades para trabalhar com empresas internacionais.
+                    </p>
+                    <p data-lang-pt="Estou sempre em busca de novos desafios e oportunidades para aplicar minhas habilidades em projetos interessantes." data-lang-en="I'm always looking for new challenges and opportunities to apply my skills in interesting projects.">
+                        Estou sempre em busca de novos desafios e oportunidades para aplicar minhas habilidades em projetos interessantes.
+                    </p>
+                    
+                    <div class="mt-4">
+                        <h4 class="mb-3" data-lang-pt="Tecnologias que utilizo:" data-lang-en="Technologies I use:">Tecnologias que utilizo:</h4>
+                        <div class="d-flex flex-wrap">
+                            <span class="skill-badge">HTML5</span>
+                            <span class="skill-badge">CSS3</span>
+                            <span class="skill-badge">JavaScript</span>
+                            <span class="skill-badge">React</span>
+                            <span class="skill-badge">Node.js</span>
+                            <span class="skill-badge">PHP</span>
+                            <span class="skill-badge">Bootstrap</span>
+                            <span class="skill-badge">Tailwind CSS</span>
+                            <span class="skill-badge">Git</span>
+                            <span class="skill-badge">WebSocket</span>
+                            <span class="skill-badge">Vite</span>
+                            <span class="skill-badge">MySQL</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mt-5 mt-lg-0">
+                    <div class="card border-0 shadow-sm p-4">
+                        <h4 class="mb-3" data-lang-pt="Informações" data-lang-en="Information">Informações</h4>
+                        <ul class="list-unstyled">
+                            <li class="mb-3">
+                                <i class="bi bi-briefcase-fill text-secondary me-2"></i>
+                                <strong data-lang-pt="Experiência:" data-lang-en="Experience:">Experiência:</strong> 
+                                <span data-lang-pt="7+ anos" data-lang-en="7+ years">7+ anos</span>
+                            </li>
+                            <li class="mb-3">
+                                <i class="bi bi-geo-alt-fill text-secondary me-2"></i>
+                                <strong data-lang-pt="Localização:" data-lang-en="Location:">Localização:</strong> 
+                                <span data-lang-pt="Brasil" data-lang-en="Brazil">Brasil</span>
+                            </li>
+                            <li class="mb-3">
+                                <i class="bi bi-translate text-secondary me-2"></i>
+                                <strong data-lang-pt="Idiomas:" data-lang-en="Languages:">Idiomas:</strong> 
+                                <span data-lang-pt="Português, Inglês" data-lang-en="Portuguese, English">Português, Inglês</span>
+                            </li>
+                            <li class="mb-3">
+                                <i class="bi bi-code-slash text-secondary me-2"></i>
+                                <strong data-lang-pt="Especialidade:" data-lang-en="Specialty:">Especialidade:</strong> 
+                                <span data-lang-pt="Fullstack Web" data-lang-en="Fullstack Web">Fullstack Web</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-5 bg-light">
+        <div class="container py-5">
+            <h2 class="section-title" data-lang-pt="Minhas Habilidades" data-lang-en="My Skills">Minhas Habilidades</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card border-0 shadow-sm h-100 p-4">
+                        <div class="card-body text-center">
+                            <i class="bi bi-laptop display-4 text-secondary mb-3"></i>
+                            <h4 class="card-title" data-lang-pt="Frontend" data-lang-en="Frontend">Frontend</h4>
+                            <p class="card-text" data-lang-pt="Desenvolvimento de interfaces modernas, responsivas e acessíveis." data-lang-en="Development of modern, responsive, and accessible interfaces.">
+                                Desenvolvimento de interfaces modernas, responsivas e acessíveis.
+                            </p>
+                            <div class="mt-3">
+                                <span class="badge bg-secondary me-1 mb-1">HTML5</span>
+                                <span class="badge bg-secondary me-1 mb-1">CSS3</span>
+                                <span class="badge bg-secondary me-1 mb-1">JavaScript</span>
+                                <span class="badge bg-secondary me-1 mb-1">React</span>
+                                <span class="badge bg-secondary me-1 mb-1">Bootstrap</span>
+                                <span class="badge bg-secondary me-1 mb-1">CSS</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card border-0 shadow-sm h-100 p-4">
+                        <div class="card-body text-center">
+                            <i class="bi bi-server display-4 text-secondary mb-3"></i>
+                            <h4 class="card-title" data-lang-pt="Backend" data-lang-en="Backend">Backend</h4>
+                            <p class="card-text" data-lang-pt="Desenvolvimento de APIs, lógica de negócio e banco de dados." data-lang-en="API development, business logic, and databases.">
+                                Desenvolvimento de APIs, lógica de negócio e banco de dados.
+                            </p>
+                            <div class="mt-3">
+                                <span class="badge bg-secondary me-1 mb-1">Node.js</span>
+                                <span class="badge bg-secondary me-1 mb-1">PHP</span>
+                                <span class="badge bg-secondary me-1 mb-1">MySQL</span>
+                                <span class="badge bg-secondary me-1 mb-1">Oracle</span>
+                                <span class="badge bg-secondary me-1 mb-1">SqlServer</span>
+                                <span class="badge bg-secondary me-1 mb-1">WebSocket</span>
+                                <span class="badge bg-secondary me-1 mb-1">APIs REST</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card border-0 shadow-sm h-100 p-4">
+                        <div class="card-body text-center">
+                            <i class="bi bi-tools display-4 text-secondary mb-3"></i>
+                            <h4 class="card-title" data-lang-pt="Ferramentas" data-lang-en="Tools">Ferramentas</h4>
+                            <p class="card-text" data-lang-pt="Ferramentas de desenvolvimento, versionamento e deploy." data-lang-en="Development tools, version control, and deployment.">
+                                Ferramentas de desenvolvimento, versionamento e deploy.
+                            </p>
+                            <div class="mt-3">
+                                <span class="badge bg-secondary me-1 mb-1">Git</span>
+                                <span class="badge bg-secondary me-1 mb-1">GitHub</span>
+                                <span class="badge bg-secondary me-1 mb-1">Vite</span>
+                                <span class="badge bg-secondary me-1 mb-1">NPM</span>
+                                <span class="badge bg-secondary me-1 mb-1">VS Code</span>
+                                <span class="badge bg-secondary me-1 mb-1">Render</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-5">
+        <div class="container py-5">
+            <h2 class="section-title" data-lang-pt="Meus Projetos" data-lang-en="My Projects">Meus Projetos</h2>
+            <div class="row">
+                <!-- Project 1 - Hextech Solutions -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="project-card">
+                        <img src="assets/projetos/hextech/baner.png" class="project-img" alt="Hextech Solutions">
+                        <div class="card-body p-4">
+                            <h4 class="card-title">Hextech Solutions</h4>
+                            <p class="card-text" data-lang-pt="Site institucional da minha empresa, com foco em serviços e contato." data-lang-en="Corporate website for my company, focused on services and contact.">
+                                Site institucional da minha empresa, com foco em serviços e contato.
+                            </p>
+                            <div class="mb-3">
+                                <span class="tech-tag">HTML</span>
+                                <span class="tech-tag">CSS</span>
+                                <span class="tech-tag">Bootstrap</span>
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">PHP</span>
+                            </div>
+                            <button class="btn btn-outline-secondary view-videos-btn" 
+                                    data-project="hextech" 
+                                    data-project-name="Hextech Solutions"
+                                    data-lang-pt="Ver Vídeos"
+                                    data-lang-en="View Videos">
+                                Ver Vídeos
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 - Tegebras -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="project-card">
+                        <img src="assets/projetos/tecgebras/baner.png" class="project-img" alt="Tegebras Grupo Geradores">
+                        <div class="card-body p-4">
+                            <h4>Tegebras Grupo Geradores</h4>
+                            <p class="card-text" data-lang-pt="Site institucional moderno com foco na apresentação dos serviços e contato da empresa." data-lang-en="Modern corporate website focused on presenting company services and contact information.">
+                                Site institucional moderno com foco na apresentação dos serviços e contato da empresa.
+                            </p>
+                            <div class="mb-3">
+                                <span class="tech-tag">HTML</span>
+                                <span class="tech-tag">CSS</span>
+                                <span class="tech-tag">Bootstrap</span>
+                                <span class="tech-tag">PHP</span>
+                            </div>
+                            <a href="https://www.tecgebras.com.br/" target="_blank" class="btn btn-outline-secondary" data-lang-pt="Ver Projeto" data-lang-en="View Project">Ver Projeto</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 - Controle Financeiro -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="project-card">
+                        <img src="assets/projetos/controleFinanceiro/baner.png" class="project-img" alt="Controle Financeiro Online">
+                        <div class="card-body p-4">
+                            <h4 data-lang-pt="Controle financeiro" data-lang-en="Financial Control">Controle Financeiro Online</h4>
+                            <p class="card-text" data-lang-pt="Site para controlar suas finanças pessoais e empresariais." data-lang-en="Website for managing your personal and business finances.">
+                                Site para controlar suas finanças pessoais e empresariais.
+                            </p>
+                            <div class="mb-3">
+                                <span class="tech-tag">HTML</span>
+                                <span class="tech-tag">CSS</span>
+                                <span class="tech-tag">Bootstrap</span>
+                                <span class="tech-tag">JavaScript</span>
+                            </div>
+                            <a href="https://pedrords3.github.io/financa-simples/" target="_blank" class="btn btn-outline-secondary" data-lang-pt="Ver Projeto" data-lang-en="View Project">Ver Projeto</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 - Karaoke -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="project-card">
+                        <img src="assets/projetos/karaoke/baner.png" class="project-img" alt="Karaoke">
+                        <div class="card-body p-4">
+                            <h4 data-lang-pt="Karaoke" data-lang-en="Karaoke">Karaoke</h4>
+                            <p class="card-text" data-lang-pt="Site para tocar karaoke online." data-lang-en="Website for playing online karaoke.">
+                                Site para tocar karaoke online.
+                            </p>
+                            <div class="mb-3">
+                                <span class="tech-tag">HTML</span>
+                                <span class="tech-tag">CSS</span>
+                                <span class="tech-tag">Bootstrap</span>
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">PHP</span>
+                                <span class="tech-tag">JSON</span>
+                            </div>
+                            <button class="btn btn-outline-secondary view-videos-btn" 
+                                    data-project="karaoke" 
+                                    data-project-name="Karaoke"
+                                    data-lang-pt="Ver Vídeos"
+                                    data-lang-en="View Videos">
+                                Ver Vídeos
+                            </button>
+                        </div>
+                    </div>
+                </div>
+               
+                <!-- Project 5 - Corporativos -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="project-card">
+                        <img src="assets/projetos/corporativos/baner.png" class="project-img" alt="Corporativos">
+                        <div class="card-body p-4">
+                            <h4 data-lang-pt="Corporativos" data-lang-en="Corporate">Projetos Corporativos</h4>
+                            <p class="card-text" data-lang-pt="Projetos desenvolvidos." data-lang-en="Developed projects.">
+                               Projetos desenvolvidos.
+                            </p>
+                            <div class="mb-3">
+                                <span class="tech-tag">HTML</span>
+                                <span class="tech-tag">CSS</span>
+                                <span class="tech-tag">Bootstrap</span>
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">PHP</span>
+                                <span class="tech-tag">JSON</span>
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">Python</span>
+                            </div>
+                            <button class="btn btn-outline-secondary view-videos-btn" 
+                                    data-project="corporativos" 
+                                    data-project-name="Projetos Corporativos"
+                                    data-lang-pt="Ver Vídeos"
+                                    data-lang-en="View Videos">
+                                Ver Vídeos
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-5">
+                <p class="lead" data-lang-pt="Confira mais projetos no meu GitHub!" data-lang-en="Check out more projects on my GitHub!">Confira mais projetos no meu GitHub!</p>
+                <a href="https://github.com/pedrords3" target="_blank" class="btn btn-primary-custom">
+                    <i class="bi bi-github me-2"></i>
+                    <span data-lang-pt="Visitar GitHub" data-lang-en="Visit GitHub">Visitar GitHub</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container py-5">
+            <h2 class="section-title" data-lang-pt="Entre em Contato" data-lang-en="Get in Touch">Entre em Contato</h2>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <p class="text-center mb-5" data-lang-pt="Estou sempre aberto a discutir novos projetos, oportunidades de trabalho ou parcerias. Entre em contato comigo através do formulário abaixo ou por qualquer um dos canais listados." data-lang-en="I'm always open to discussing new projects, job opportunities, or partnerships. Get in touch with me using the form below or through any of the channels listed.">
+                        Estou sempre aberto a discutir novos projetos, oportunidades de trabalho ou parcerias. Entre em contato comigo através do formulário abaixo ou por qualquer um dos canais listados.
+                    </p>
+                    
+                    <div class="row mb-5">
+
+                        <div class="col-md-6 text-center mb-4">
+                            <div class="p-4 bg-white rounded shadow-sm">
+                                <i class="bi bi-linkedin text-secondary display-6 mb-3"></i>
+                                <h5>LinkedIn</h5>
+                                <a href="https://www.linkedin.com/in/pedro-rodrigues-059901126/" target="_blank" class="mb-0 text-decoration-none">Pedro Rodrigues</a>
+                            </div>
+                        </div>
+                        <div class="col-md-6 text-center mb-4">
+                            <div class="p-4 bg-white rounded shadow-sm">
+                                <i class="bi bi-github text-secondary display-6 mb-3"></i>
+                                <h5>GitHub</h5>
+                                <a href="https://github.com/pedrords3" target="_blank" class="mb-0 text-decoration-none">github.com/pedrords3</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    <h5>Pedro Rodrigues</h5>
+                    <p data-lang-pt="Desenvolvedor Web Fullstack" data-lang-en="Fullstack Web Developer">Desenvolvedor Web Fullstack</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <div class="mb-3">
+                        <a href="https://github.com/pedrords3" target="_blank" class="text-white me-3">
+                            <i class="bi bi-github fs-4"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/pedro-rodrigues-059901126/" target="_blank" class="text-white me-3">
+                            <i class="bi bi-linkedin fs-4"></i>
+                        </a>
+                        <!-- <a href="#" class="text-white">
+                            <i class="bi bi-envelope-fill fs-4"></i>
+                        </a> -->
+                    </div>
+                    <p class="mb-0" data-lang-pt="© 2026 Pedro Rodrigues. Todos os direitos reservados." data-lang-en="© 2026 Pedro Rodrigues. All rights reserved.">
+                        © 2026 Pedro Rodrigues. Todos os direitos reservados.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Dados dos vídeos por projeto
+        const projectVideos = {
+            'hextech': [
+                {
+                    title: 'Apresentação do Site',
+                    description: 'Visão geral completa do site institucional da Hextech Solutions',
+                    videoPath: 'assets/projetos/hextech/HexTech.mp4',
+                    thumbnail: 'assets/projetos/hextech/baner.png'
+                }
+            ],
+            'karaoke': [
+                {
+                    title: 'Demonstração do Karaoke',
+                    description: 'Visão geral do sistema de karaoke online',
+                    videoPath: 'assets/projetos/karaoke/apresentacao.mp4',
+                    thumbnail: 'assets/projetos/karaoke/baner.png'
+                },
+                {
+                    title: 'Outra demonstração',
+                    description: 'Outra apresentação',
+                    videoPath: 'assets/projetos/karaoke/apresentacao2.mp4',
+                    thumbnail: 'assets/projetos/karaoke/baner.png'
+                },
+                // {
+                //     title: 'Player de Karaoke',
+                //     description: 'Funcionamento do player com letras sincronizadas',
+                //     videoPath: 'assets/projetos/karaoke/videos/player.mp4',
+                //     thumbnail: 'assets/projetos/karaoke/baner.png'
+                // }
+            ],
+            'corporativos': [
+                {
+                    title: 'Intranet Corporativa',
+                    description: 'Intranet Corporativa',
+                    videoPath: 'assets/projetos/corporativos/Intranet/apresentacao.mp4',
+                    thumbnail: 'assets/projetos/corporativos/Intranet/inicio.png'
+                },
+                {
+                    title: 'Tech Health',
+                    description: 'Sistema de automação',
+                    videoPath: 'assets/projetos/corporativos/TechHealth/apresentacao_.mp4',
+                    thumbnail: 'assets/projetos/corporativos/TechHealth/Dashboard.png'
+                },
+                {
+                    title: 'Assinatura de email',
+                    description: 'Sistema que gera assinatura padrão',
+                    videoPath: 'assets/projetos/corporativos/Assinatura/AssinaturaView.png',
+                    thumbnail: 'assets/projetos/corporativos/Assinatura/Assinatura.png'
+                },
+                {
+                    title: 'Projeto Corporativo 4',
+                    description: 'Aplicação React com integração de APIs',
+                    videoPath: 'assets/projetos/corporativos/videos/projeto4.mp4',
+                    thumbnail: 'assets/projetos/corporativos/baner.png'
+                }
+            ]
+        };
+
+        // Variáveis globais
+        let currentLang = 'pt';
+        const langToggle = document.getElementById('langToggle');
+        let currentProject = '';
+        let currentVideoIndex = 0;
+
+        // Inicialização
+        document.addEventListener('DOMContentLoaded', function() {
+            // Configurar botões de vídeo
+            setupVideoButtons();
+            
+            // Configurar botão de idioma
+            langToggle.addEventListener('click', toggleLanguage);
+            
+            // Configurar smooth scrolling
+            setupSmoothScrolling();
+            
+            // Configurar navegação ativa
+            window.addEventListener('scroll', updateActiveNav);
+            
+            // Fechar vídeo quando modal é fechado
+            const modal = document.getElementById('projectVideosModal');
+            modal.addEventListener('hidden.bs.modal', function() {
+                const videoContainer = document.getElementById('mainVideoContainer');
+                videoContainer.innerHTML = '';
+                currentVideoIndex = 0;
+            });
+        });
+
+        // Configurar botões de vídeo
+        function setupVideoButtons() {
+            document.querySelectorAll('.view-videos-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const project = this.getAttribute('data-project');
+                    const projectName = this.getAttribute('data-project-name');
+                    openVideoModal(project, projectName);
+                });
+            });
+        }
+
+        // Abrir modal de vídeos
+        function openVideoModal(project, projectName) {
+            currentProject = project;
+            currentVideoIndex = 0;
+            
+            // Atualizar título do modal
+            const modalTitle = document.getElementById('projectVideosModalLabel');
+            modalTitle.textContent = `${projectName} - Vídeos`;
+            
+            // Carregar vídeos do projeto
+            const videos = projectVideos[project] || [];
+            
+            // Limpar conteúdo anterior
+            const videoList = document.getElementById('videoList');
+            videoList.innerHTML = '';
+            
+            // Adicionar vídeos à lista
+            videos.forEach((video, index) => {
+                const videoItem = createVideoThumbnail(video, index);
+                videoList.appendChild(videoItem);
+            });
+            
+            // Carregar primeiro vídeo
+            if (videos.length > 0) {
+                loadVideo(0);
+            }
+            
+            // Mostrar modal
+            const modal = new bootstrap.Modal(document.getElementById('projectVideosModal'));
+            modal.show();
+        }
+
+        // Criar thumbnail de vídeo
+        function createVideoThumbnail(video, index) {
+            const div = document.createElement('div');
+            div.className = 'video-thumbnail';
+            div.setAttribute('data-index', index);
+            
+            div.innerHTML = `
+                <img src="${video.thumbnail}" alt="${video.title}">
+                <div class="play-btn">
+                    <i class="bi bi-play-fill"></i>
+                </div>
+                <div class="video-title">${video.title}</div>
+            `;
+            
+            div.addEventListener('click', function() {
+                const index = parseInt(this.getAttribute('data-index'));
+                loadVideo(index);
+            });
+            
+            return div;
+        }
+
+        // Carregar vídeo principal
+        function loadVideo(index) {
+            const videos = projectVideos[currentProject];
+            if (!videos || index >= videos.length) return;
+            
+            currentVideoIndex = index;
+            const video = videos[index];
+            
+            // Atualizar container de vídeo principal
+            const videoContainer = document.getElementById('mainVideoContainer');
+            videoContainer.innerHTML = `
+                <video controls autoplay class="w-100 h-100">
+                    <source src="${video.videoPath}" type="video/mp4">
+                    <p data-lang-pt="Seu navegador não suporta vídeos HTML5." data-lang-en="Your browser does not support HTML5 video.">
+                        Seu navegador não suporta vídeos HTML5.
+                    </p>
+                </video>
+            `;
+            
+            // Atualizar informações do vídeo
+            document.getElementById('currentVideoTitle').textContent = video.title;
+            document.getElementById('currentVideoDescription').textContent = video.description;
+            
+            // Destacar thumbnail ativa
+            document.querySelectorAll('.video-thumbnail').forEach((thumb, i) => {
+                if (i === index) {
+                    thumb.style.boxShadow = '0 0 0 2px var(--secondary-color)';
+                } else {
+                    thumb.style.boxShadow = 'none';
+                }
+            });
+        }
+
+        // Alternar idioma
+        function toggleLanguage() {
+            currentLang = currentLang === 'pt' ? 'en' : 'pt';
+            langToggle.textContent = currentLang === 'pt' ? 'BR' : 'EN';
+            updateLanguage();
+        }
+
+        // Atualizar idioma
+        function updateLanguage() {
+            // Atualizar todos os elementos com data-lang
+            document.querySelectorAll('[data-lang-pt]').forEach(element => {
+                if (currentLang === 'pt') {
+                    element.textContent = element.getAttribute('data-lang-pt');
+                } else {
+                    element.textContent = element.getAttribute('data-lang-en');
+                }
+            });
+            
+            // Atualizar placeholders
+            document.querySelectorAll('[data-lang-pt-placeholder]').forEach(element => {
+                if (currentLang === 'pt') {
+                    element.placeholder = element.getAttribute('data-lang-pt-placeholder');
+                } else {
+                    element.placeholder = element.getAttribute('data-lang-en-placeholder');
+                }
+            });
+            
+            // Atualizar títulos dos vídeos no modal se estiver aberto
+            const modal = document.getElementById('projectVideosModal');
+            if (modal.classList.contains('show')) {
+                const modalTitle = document.getElementById('projectVideosModalLabel');
+                const projectName = modalTitle.textContent.split(' - ')[0];
+                modalTitle.textContent = currentLang === 'pt' 
+                    ? `${projectName} - Vídeos` 
+                    : `${projectName} - Videos`;
+                
+                // Atualizar botão de fechar
+                const closeBtn = document.querySelector('#projectVideosModal .btn-secondary');
+                closeBtn.textContent = currentLang === 'pt' ? 'Fechar' : 'Close';
+            }
+        }
+
+        // Configurar smooth scrolling
+        function setupSmoothScrolling() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if(targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 70,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Fechar menu mobile se aberto
+                        const navbarCollapse = document.getElementById('navbarNav');
+                        if(navbarCollapse.classList.contains('show')) {
+                            new bootstrap.Collapse(navbarCollapse).toggle();
+                        }
+                    }
+                });
+            });
+        }
+
+        // Atualizar navegação ativa
+        function updateActiveNav() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+    </script>
+</body>
+</html>

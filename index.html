@@ -24,38 +24,63 @@
         <div class="lang-btn" id="langToggle">BR</div>
     </div>
 
-    <!-- Modal para Vídeos -->
-    <div class="modal fade" id="projectVideosModal" tabindex="-1" aria-labelledby="projectVideosModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
+    <!-- Modal para Galeria de Mídia -->
+    <div class="modal fade" id="projectMediaModal" tabindex="-1" aria-labelledby="projectMediaModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="projectVideosModalLabel"></h5>
+                    <h5 class="modal-title" id="projectMediaModalLabel"></h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                        <!-- Área do vídeo principal -->
+                        <!-- Área da mídia principal -->
                         <div class="col-lg-8">
-                            <div class="modal-video-container" id="mainVideoContainer">
-                                <!-- O vídeo será inserido aqui via JavaScript -->
+                            <div class="main-media-container" id="mainMediaContainer">
+                                <!-- O vídeo ou imagem será inserido aqui via JavaScript -->
                             </div>
-                            <div class="video-info mt-3">
-                                <h6 id="currentVideoTitle"></h6>
-                                <p class="text-muted small" id="currentVideoDescription"></p>
+                            <div class="media-info mt-3">
+                                <h6 id="currentMediaTitle"></h6>
+                                <p class="text-muted small" id="currentMediaDescription"></p>
+                                <div class="media-type-badge" id="mediaTypeBadge"></div>
                             </div>
                         </div>
                         
-                        <!-- Lista de vídeos -->
+                        <!-- Lista de mídias -->
                         <div class="col-lg-4">
-                            <h6 data-lang-pt="Vídeos do Projeto" data-lang-en="Project Videos">Vídeos do Projeto</h6>
-                            <div class="video-list" id="videoList">
-                                <!-- A lista de vídeos será inserida aqui via JavaScript -->
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h6 class="mb-0" data-lang-pt="Mídias do Projeto" data-lang-en="Project Media">Mídias do Projeto</h6>
+                                <div class="btn-group btn-group-sm" role="group">
+                                    <button type="button" class="btn btn-outline-secondary active" id="filterAll" data-lang-pt="Todas" data-lang-en="All">Todas</button>
+                                    <button type="button" class="btn btn-outline-secondary" id="filterVideos" data-lang-pt="Vídeos" data-lang-en="Videos">Vídeos</button>
+                                    <button type="button" class="btn btn-outline-secondary" id="filterImages" data-lang-pt="Imagens" data-lang-en="Images">Imagens</button>
+                                </div>
+                            </div>
+                            <div class="media-list" id="mediaList">
+                                <!-- A lista de mídias será inserida aqui via JavaScript -->
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-lang-pt="Fechar" data-lang-en="Close">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para Imagem em Tela Cheia -->
+    <div class="modal fade" id="fullscreenImageModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content bg-dark">
+                <div class="modal-header border-0">
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body d-flex justify-content-center align-items-center">
+                    <img id="fullscreenImage" src="" alt="" class="img-fluid" style="max-height: 90vh; object-fit: contain;">
+                </div>
+                <div class="modal-footer border-0 justify-content-center">
+                    <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal" data-lang-pt="Fechar" data-lang-en="Close">Fechar</button>
                 </div>
             </div>
         </div>
@@ -105,7 +130,7 @@
                     </p>
                     <div class="d-flex flex-wrap gap-3">
                         <a href="#projects" class="btn btn-primary-custom" data-lang-pt="Ver Projetos" data-lang-en="View Projects">Ver Projetos</a>
-                        <a href="#contact" class="btn btn-outline-light" data-lang-pt="Entre em Contato" data-lang-en="Get in Touch">Entre em Contato</a>
+                        <a href="#contact" class="btn btn-outline-light" data-lang-pt="Contato" data-lang-en="Contact">Contato</a>
                     </div>
                 </div>
             </div>
@@ -118,8 +143,8 @@
             <h2 class="section-title" data-lang-pt="Sobre Mim" data-lang-en="About Me">Sobre Mim</h2>
             <div class="row">
                 <div class="col-lg-8">
-                    <p data-lang-pt="Meu nome é Pedro Rodrigues. Sou desenvolvedor web com mais de 7 anos de experiência. Tenho facilidade com desenvolvimento front-end, mas também trabalho no back-end. Atualmente estou focado em aprender mais sobre React e Node.js, e busco oportunidades para trabalhar com empresas internacionais." data-lang-en="My name is Pedro Rodrigues. I'm a web developer with over 7 years of experience. I'm proficient in front-end development, but I also work on back-end. Currently, I'm focused on learning more about React and Node.js, and I'm looking for opportunities to work with international companies.">
-                        Meu nome é Pedro Rodrigues. Sou desenvolvedor web com mais de 7 anos de experiência. Tenho facilidade com desenvolvimento front-end, mas também trabalho no back-end. Atualmente estou focado em aprender mais sobre React e Node.js, e busco oportunidades para trabalhar com empresas internacionais.
+                    <p data-lang-pt="Meu nome é Pedro Rodrigues. Sou desenvolvedor web com mais de 7 anos de experiência. Tenho facilidade com desenvolvimento front-end e também trabalho no back-end. Atualmente estou focado em aprender mais sobre segurança, e busco oportunidades para trabalhar com empresas internacionais." data-lang-en="My name is Pedro Rodrigues. I'm a web developer with over 7 years of experience. I'm proficient in front-end development and I also work on back-end. Currently, I'm focused on learning more about security, and I'm looking for opportunities to work with international companies.">
+                        Meu nome é Pedro Rodrigues. Sou desenvolvedor web com mais de 7 anos de experiência. Tenho facilidade com desenvolvimento front-end e também trabalho no back-end. Atualmente estou focado em aprender mais sobre segurança, e busco oportunidades para trabalhar com empresas internacionais.
                     </p>
                     <p data-lang-pt="Estou sempre em busca de novos desafios e oportunidades para aplicar minhas habilidades em projetos interessantes." data-lang-en="I'm always looking for new challenges and opportunities to apply my skills in interesting projects.">
                         Estou sempre em busca de novos desafios e oportunidades para aplicar minhas habilidades em projetos interessantes.
@@ -138,8 +163,10 @@
                             <span class="skill-badge">Tailwind CSS</span>
                             <span class="skill-badge">Git</span>
                             <span class="skill-badge">WebSocket</span>
-                            <span class="skill-badge">Vite</span>
+                            <span class="skill-badge">Python</span>
                             <span class="skill-badge">MySQL</span>
+                            <span class="skill-badge">Oracle</span>
+                            <span class="skill-badge">SqlServer</span>
                         </div>
                     </div>
                 </div>
@@ -262,12 +289,12 @@
                                 <span class="tech-tag">JavaScript</span>
                                 <span class="tech-tag">PHP</span>
                             </div>
-                            <button class="btn btn-outline-secondary view-videos-btn" 
+                            <button class="btn btn-outline-secondary view-media-btn" 
                                     data-project="hextech" 
                                     data-project-name="Hextech Solutions"
-                                    data-lang-pt="Ver Vídeos"
-                                    data-lang-en="View Videos">
-                                Ver Vídeos
+                                    data-lang-pt="Ver Mídias"
+                                    data-lang-en="View Media">
+                                Ver Mídias
                             </button>
                         </div>
                     </div>
@@ -330,18 +357,46 @@
                                 <span class="tech-tag">PHP</span>
                                 <span class="tech-tag">JSON</span>
                             </div>
-                            <button class="btn btn-outline-secondary view-videos-btn" 
+                            <button class="btn btn-outline-secondary view-media-btn" 
                                     data-project="karaoke" 
                                     data-project-name="Karaoke"
-                                    data-lang-pt="Ver Vídeos"
-                                    data-lang-en="View Videos">
-                                Ver Vídeos
+                                    data-lang-pt="Ver Mídias"
+                                    data-lang-en="View Media">
+                                Ver Mídias
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 5 - Agenda Clínica -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="project-card">
+                        <img src="assets/projetos/agendaClinica/baner.png" class="project-img" alt="Agenda Clínica">
+                        <div class="card-body p-4">
+                            <h4 data-lang-pt="Agenda Clínica" data-lang-en="Clinic Agenda">Agenda Clínica</h4>
+                            <p class="card-text" data-lang-pt="Site para agendar consultas clínicas." data-lang-en="Website for scheduling clinic appointments.">
+                                Site para agendar consultas clínicas.
+                            </p>
+                            <div class="mb-3">
+                                <span class="tech-tag">HTML</span>
+                                <span class="tech-tag">CSS</span>
+                                <span class="tech-tag">Bootstrap</span>
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">PHP</span>
+                                <span class="tech-tag">mySQL</span>
+                            </div>
+                            <button class="btn btn-outline-secondary view-media-btn" 
+                                    data-project="agendaClinica" 
+                                    data-project-name="Agenda Clínica"
+                                    data-lang-pt="Ver Mídias"
+                                    data-lang-en="View Media">
+                                Ver Mídias
                             </button>
                         </div>
                     </div>
                 </div>
                
-                <!-- Project 5 - Corporativos -->
+                <!-- Project 6 - Corporativos -->
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="project-card">
                         <img src="assets/projetos/corporativos/baner.png" class="project-img" alt="Corporativos">
@@ -360,12 +415,12 @@
                                 <span class="tech-tag">React</span>
                                 <span class="tech-tag">Python</span>
                             </div>
-                            <button class="btn btn-outline-secondary view-videos-btn" 
+                            <button class="btn btn-outline-secondary view-media-btn" 
                                     data-project="corporativos" 
                                     data-project-name="Projetos Corporativos"
-                                    data-lang-pt="Ver Vídeos"
-                                    data-lang-en="View Videos">
-                                Ver Vídeos
+                                    data-lang-pt="Ver Mídias"
+                                    data-lang-en="View Media">
+                                Ver Mídias
                             </button>
                         </div>
                     </div>
@@ -385,15 +440,14 @@
     <!-- Contact Section -->
     <section id="contact" class="contact-section">
         <div class="container py-5">
-            <h2 class="section-title" data-lang-pt="Entre em Contato" data-lang-en="Get in Touch">Entre em Contato</h2>
+            <h2 class="section-title" data-lang-pt="Contato" data-lang-en="Contact">Contato</h2>
             <div class="row">
                 <div class="col-lg-8 mx-auto">
-                    <p class="text-center mb-5" data-lang-pt="Estou sempre aberto a discutir novos projetos, oportunidades de trabalho ou parcerias. Entre em contato comigo através do formulário abaixo ou por qualquer um dos canais listados." data-lang-en="I'm always open to discussing new projects, job opportunities, or partnerships. Get in touch with me using the form below or through any of the channels listed.">
-                        Estou sempre aberto a discutir novos projetos, oportunidades de trabalho ou parcerias. Entre em contato comigo através do formulário abaixo ou por qualquer um dos canais listados.
+                    <p class="text-center mb-5" data-lang-pt="Estou sempre aberto a discutir novos projetos, oportunidades de trabalho ou parcerias." data-lang-en="I'm always open to discussing new projects, job opportunities, or partnerships.">
+                        Estou sempre aberto a discutir novos projetos, oportunidades de trabalho ou parcerias.
                     </p>
                     
                     <div class="row mb-5">
-
                         <div class="col-md-6 text-center mb-4">
                             <div class="p-4 bg-white rounded shadow-sm">
                                 <i class="bi bi-linkedin text-secondary display-6 mb-3"></i>
@@ -431,9 +485,6 @@
                         <a href="https://www.linkedin.com/in/pedro-rodrigues-059901126/" target="_blank" class="text-white me-3">
                             <i class="bi bi-linkedin fs-4"></i>
                         </a>
-                        <!-- <a href="#" class="text-white">
-                            <i class="bi bi-envelope-fill fs-4"></i>
-                        </a> -->
                     </div>
                     <p class="mb-0" data-lang-pt="© 2026 Pedro Rodrigues. Todos os direitos reservados." data-lang-en="© 2026 Pedro Rodrigues. All rights reserved.">
                         © 2026 Pedro Rodrigues. Todos os direitos reservados.
@@ -447,61 +498,72 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     
     <script>
-        // Dados dos vídeos por projeto
-        const projectVideos = {
+        // Dados das mídias por projeto
+        const projectMedia = {
             'hextech': [
                 {
+                    type: 'video',
                     title: 'Apresentação do Site',
                     description: 'Visão geral completa do site institucional da Hextech Solutions',
-                    videoPath: 'assets/projetos/hextech/HexTech.mp4',
+                    path: 'assets/projetos/hextech/HexTech.mp4',
                     thumbnail: 'assets/projetos/hextech/baner.png'
                 }
             ],
             'karaoke': [
                 {
+                    type: 'video',
                     title: 'Demonstração do Karaoke',
                     description: 'Visão geral do sistema de karaoke online',
-                    videoPath: 'assets/projetos/karaoke/apresentacao.mp4',
+                    path: 'assets/projetos/karaoke/apresentacao.mp4',
                     thumbnail: 'assets/projetos/karaoke/baner.png'
                 },
                 {
+                    type: 'video',
                     title: 'Outra demonstração',
-                    description: 'Outra apresentação',
-                    videoPath: 'assets/projetos/karaoke/apresentacao2.mp4',
+                    description: 'Outra apresentação do sistema',
+                    path: 'assets/projetos/karaoke/apresentacao2.mp4',
                     thumbnail: 'assets/projetos/karaoke/baner.png'
-                },
-                // {
-                //     title: 'Player de Karaoke',
-                //     description: 'Funcionamento do player com letras sincronizadas',
-                //     videoPath: 'assets/projetos/karaoke/videos/player.mp4',
-                //     thumbnail: 'assets/projetos/karaoke/baner.png'
-                // }
+                }
             ],
             'corporativos': [
                 {
+                    type: 'video',
                     title: 'Intranet Corporativa',
-                    description: 'Intranet Corporativa',
-                    videoPath: 'assets/projetos/corporativos/Intranet/apresentacao.mp4',
+                    description: 'Sistema de intranet corporativa desenvolvido',
+                    path: 'assets/projetos/corporativos/Intranet/apresentacao.mp4',
                     thumbnail: 'assets/projetos/corporativos/Intranet/inicio.png'
                 },
                 {
+                    type: 'video',
                     title: 'Tech Health',
-                    description: 'Sistema de automação',
-                    videoPath: 'assets/projetos/corporativos/TechHealth/apresentacao_.mp4',
+                    description: 'Sistema de automação para saúde',
+                    path: 'assets/projetos/corporativos/TechHealth/apresentacao_.mp4',
                     thumbnail: 'assets/projetos/corporativos/TechHealth/Dashboard.png'
                 },
                 {
-                    title: 'Assinatura de email',
-                    description: 'Sistema que gera assinatura padrão',
-                    videoPath: 'assets/projetos/corporativos/Assinatura/AssinaturaView.png',
+                    type: 'image',
+                    title: 'Assinatura de Email - Tela Principal',
+                    description: 'Interface principal do sistema de geração de assinaturas de email',
+                    path: 'assets/projetos/corporativos/Assinatura/Assinatura.png',
                     thumbnail: 'assets/projetos/corporativos/Assinatura/Assinatura.png'
                 },
                 {
-                    title: 'Projeto Corporativo 4',
-                    description: 'Aplicação React com integração de APIs',
-                    videoPath: 'assets/projetos/corporativos/videos/projeto4.mp4',
-                    thumbnail: 'assets/projetos/corporativos/baner.png'
+                    type: 'image',
+                    title: 'Assinatura de Email - Visualização',
+                    description: 'Visualização da assinatura gerada',
+                    path: 'assets/projetos/corporativos/Assinatura/AssinaturaView.png',
+                    thumbnail: 'assets/projetos/corporativos/Assinatura/AssinaturaView.png'
                 }
+            ],
+            'agendaClinica': [
+                {
+                    type: 'video',
+                    title: 'Demonstração da Agenda Clínica',
+                    description: 'Visão geral do sistema de agendamento de consultas clínicas',
+                    path: 'assets/projetos/agendaClinica/apresentacao.mp4',
+                    thumbnail: 'assets/projetos/agendaClinica/baner.png'
+                }
+
             ]
         };
 
@@ -509,12 +571,13 @@
         let currentLang = 'pt';
         const langToggle = document.getElementById('langToggle');
         let currentProject = '';
-        let currentVideoIndex = 0;
+        let currentMediaIndex = 0;
+        let currentFilter = 'all';
 
         // Inicialização
         document.addEventListener('DOMContentLoaded', function() {
-            // Configurar botões de vídeo
-            setupVideoButtons();
+            // Configurar botões de mídia
+            setupMediaButtons();
             
             // Configurar botão de idioma
             langToggle.addEventListener('click', toggleLanguage);
@@ -525,111 +588,251 @@
             // Configurar navegação ativa
             window.addEventListener('scroll', updateActiveNav);
             
-            // Fechar vídeo quando modal é fechado
-            const modal = document.getElementById('projectVideosModal');
+            // Configurar filtros
+            setupFilters();
+            
+            // Fechar mídia quando modal é fechado
+            const modal = document.getElementById('projectMediaModal');
             modal.addEventListener('hidden.bs.modal', function() {
-                const videoContainer = document.getElementById('mainVideoContainer');
-                videoContainer.innerHTML = '';
-                currentVideoIndex = 0;
+                const mediaContainer = document.getElementById('mainMediaContainer');
+                mediaContainer.innerHTML = '';
+                currentMediaIndex = 0;
+                currentFilter = 'all';
+                
+                // Resetar filtros
+                document.getElementById('filterAll').classList.add('active');
+                document.getElementById('filterVideos').classList.remove('active');
+                document.getElementById('filterImages').classList.remove('active');
             });
         });
 
-        // Configurar botões de vídeo
-        function setupVideoButtons() {
-            document.querySelectorAll('.view-videos-btn').forEach(btn => {
+        // Configurar botões de mídia
+        function setupMediaButtons() {
+            document.querySelectorAll('.view-media-btn').forEach(btn => {
                 btn.addEventListener('click', function() {
                     const project = this.getAttribute('data-project');
                     const projectName = this.getAttribute('data-project-name');
-                    openVideoModal(project, projectName);
+                    openMediaModal(project, projectName);
                 });
             });
         }
 
-        // Abrir modal de vídeos
-        function openVideoModal(project, projectName) {
-            currentProject = project;
-            currentVideoIndex = 0;
-            
-            // Atualizar título do modal
-            const modalTitle = document.getElementById('projectVideosModalLabel');
-            modalTitle.textContent = `${projectName} - Vídeos`;
-            
-            // Carregar vídeos do projeto
-            const videos = projectVideos[project] || [];
-            
-            // Limpar conteúdo anterior
-            const videoList = document.getElementById('videoList');
-            videoList.innerHTML = '';
-            
-            // Adicionar vídeos à lista
-            videos.forEach((video, index) => {
-                const videoItem = createVideoThumbnail(video, index);
-                videoList.appendChild(videoItem);
+        // Configurar filtros
+        function setupFilters() {
+            document.getElementById('filterAll').addEventListener('click', function() {
+                setFilter('all');
             });
             
-            // Carregar primeiro vídeo
-            if (videos.length > 0) {
-                loadVideo(0);
+            document.getElementById('filterVideos').addEventListener('click', function() {
+                setFilter('video');
+            });
+            
+            document.getElementById('filterImages').addEventListener('click', function() {
+                setFilter('image');
+            });
+        }
+
+        // Definir filtro ativo
+        function setFilter(filterType) {
+            currentFilter = filterType;
+            
+            // Atualizar botões ativos
+            document.getElementById('filterAll').classList.remove('active');
+            document.getElementById('filterVideos').classList.remove('active');
+            document.getElementById('filterImages').classList.remove('active');
+            
+            if (filterType === 'all') {
+                document.getElementById('filterAll').classList.add('active');
+            } else if (filterType === 'video') {
+                document.getElementById('filterVideos').classList.add('active');
+            } else if (filterType === 'image') {
+                document.getElementById('filterImages').classList.add('active');
+            }
+            
+            // Atualizar lista de mídias
+            updateMediaList();
+        }
+
+        // Abrir modal de mídias
+        function openMediaModal(project, projectName) {
+            currentProject = project;
+            currentMediaIndex = 0;
+            currentFilter = 'all';
+            
+            // Atualizar título do modal
+            const modalTitle = document.getElementById('projectMediaModalLabel');
+            modalTitle.textContent = `${projectName} - Mídias`;
+            
+            // Carregar mídias do projeto
+            const media = projectMedia[project] || [];
+            
+            // Atualizar lista de mídias
+            updateMediaList();
+            
+            // Carregar primeira mídia
+            if (media.length > 0) {
+                loadMedia(0);
             }
             
             // Mostrar modal
-            const modal = new bootstrap.Modal(document.getElementById('projectVideosModal'));
+            const modal = new bootstrap.Modal(document.getElementById('projectMediaModal'));
             modal.show();
         }
 
-        // Criar thumbnail de vídeo
-        function createVideoThumbnail(video, index) {
+        // Atualizar lista de mídias
+        function updateMediaList() {
+            const media = projectMedia[currentProject] || [];
+            const filteredMedia = media.filter(item => {
+                if (currentFilter === 'all') return true;
+                return item.type === currentFilter;
+            });
+            
+            // Limpar conteúdo anterior
+            const mediaList = document.getElementById('mediaList');
+            mediaList.innerHTML = '';
+            
+            // Adicionar mídias à lista
+            filteredMedia.forEach((item, index) => {
+                // Encontrar o índice original no array completo
+                const originalIndex = media.findIndex(m => 
+                    m.path === item.path && m.type === item.type
+                );
+                
+                const mediaItem = createMediaThumbnail(item, originalIndex);
+                mediaList.appendChild(mediaItem);
+            });
+            
+            // Atualizar contador
+            const mediaCount = document.createElement('div');
+            mediaCount.className = 'text-muted small mt-2 text-center';
+            mediaCount.innerHTML = `<i class="bi bi-collection me-1"></i> ${filteredMedia.length} mídia${filteredMedia.length !== 1 ? 's' : ''}`;
+            mediaList.appendChild(mediaCount);
+        }
+
+        // Criar thumbnail de mídia
+        function createMediaThumbnail(media, index) {
             const div = document.createElement('div');
-            div.className = 'video-thumbnail';
+            div.className = 'media-thumbnail';
             div.setAttribute('data-index', index);
+            div.setAttribute('data-type', media.type);
+            
+            // Ícone baseado no tipo
+            const iconClass = media.type === 'video' ? 'bi-play-fill' : 'bi-image';
             
             div.innerHTML = `
-                <img src="${video.thumbnail}" alt="${video.title}">
-                <div class="play-btn">
-                    <i class="bi bi-play-fill"></i>
+                <img src="${media.thumbnail}" alt="${media.title}">
+                <div class="media-type-icon">
+                    <i class="bi ${iconClass}"></i>
                 </div>
-                <div class="video-title">${video.title}</div>
+                <div class="media-title">${media.title}</div>
             `;
             
             div.addEventListener('click', function() {
                 const index = parseInt(this.getAttribute('data-index'));
-                loadVideo(index);
+                loadMedia(index);
             });
             
             return div;
         }
 
-        // Carregar vídeo principal
-        function loadVideo(index) {
-            const videos = projectVideos[currentProject];
-            if (!videos || index >= videos.length) return;
+        // Carregar mídia principal
+        function loadMedia(index) {
+            const mediaArray = projectMedia[currentProject];
+            if (!mediaArray || index >= mediaArray.length) return;
             
-            currentVideoIndex = index;
-            const video = videos[index];
+            currentMediaIndex = index;
+            const media = mediaArray[index];
             
-            // Atualizar container de vídeo principal
-            const videoContainer = document.getElementById('mainVideoContainer');
-            videoContainer.innerHTML = `
-                <video controls autoplay class="w-100 h-100">
-                    <source src="${video.videoPath}" type="video/mp4">
-                    <p data-lang-pt="Seu navegador não suporta vídeos HTML5." data-lang-en="Your browser does not support HTML5 video.">
-                        Seu navegador não suporta vídeos HTML5.
-                    </p>
-                </video>
-            `;
+            // Atualizar container de mídia principal
+            const mediaContainer = document.getElementById('mainMediaContainer');
             
-            // Atualizar informações do vídeo
-            document.getElementById('currentVideoTitle').textContent = video.title;
-            document.getElementById('currentVideoDescription').textContent = video.description;
+            if (media.type === 'video') {
+                mediaContainer.innerHTML = `
+                    <div class="video-container-outer">
+                        <div class="video-container-inner">
+                            <video controls autoplay class="w-100 h-100">
+                                <source src="${media.path}" type="video/mp4">
+                                <p data-lang-pt="Seu navegador não suporta vídeos HTML5." data-lang-en="Your browser does not support HTML5 video.">
+                                    Seu navegador não suporta vídeos HTML5.
+                                </p>
+                            </video>
+                        </div>
+                    </div>
+                `;
+                
+                // Configurar auto-play para o vídeo
+                const video = mediaContainer.querySelector('video');
+                if (video) {
+                    video.play().catch(e => console.log("Auto-play não permitido:", e));
+                }
+            } else {
+                mediaContainer.innerHTML = `
+                    <div class="image-container">
+                        <img src="${media.path}" alt="${media.title}" class="img-fluid rounded main-image" 
+                             style="cursor: pointer; max-height: 500px; object-fit: contain;" 
+                             onclick="openFullscreenImage('${media.path}', '${media.title}')">
+                        <div class="image-controls mt-2">
+                            <button class="btn btn-sm btn-outline-secondary" onclick="openFullscreenImage('${media.path}', '${media.title}')">
+                                <i class="bi bi-arrows-fullscreen me-1"></i>
+                                <span data-lang-pt="Tela Cheia" data-lang-en="Fullscreen">Tela Cheia</span>
+                            </button>
+                            <button class="btn btn-sm btn-outline-secondary" onclick="downloadImage('${media.path}', '${media.title}')">
+                                <i class="bi bi-download me-1"></i>
+                                <span data-lang-pt="Download" data-lang-en="Download">Download</span>
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            // Atualizar informações da mídia
+            document.getElementById('currentMediaTitle').textContent = media.title;
+            document.getElementById('currentMediaDescription').textContent = media.description;
+            
+            // Atualizar badge do tipo
+            const typeBadge = document.getElementById('mediaTypeBadge');
+            if (media.type === 'video') {
+                typeBadge.innerHTML = '<span class="badge bg-danger"><i class="bi bi-play-circle me-1"></i> Vídeo</span>';
+                typeBadge.setAttribute('data-lang-pt', 'Vídeo');
+                typeBadge.setAttribute('data-lang-en', 'Video');
+            } else {
+                typeBadge.innerHTML = '<span class="badge bg-info"><i class="bi bi-image me-1"></i> Imagem</span>';
+                typeBadge.setAttribute('data-lang-pt', 'Imagem');
+                typeBadge.setAttribute('data-lang-en', 'Image');
+            }
             
             // Destacar thumbnail ativa
-            document.querySelectorAll('.video-thumbnail').forEach((thumb, i) => {
-                if (i === index) {
+            document.querySelectorAll('.media-thumbnail').forEach((thumb, i) => {
+                const thumbIndex = parseInt(thumb.getAttribute('data-index'));
+                if (thumbIndex === index) {
                     thumb.style.boxShadow = '0 0 0 2px var(--secondary-color)';
                 } else {
                     thumb.style.boxShadow = 'none';
                 }
             });
+            
+            // Atualizar idioma dos controles
+            updateLanguage();
+        }
+
+        // Abrir imagem em tela cheia
+        function openFullscreenImage(imageSrc, imageTitle) {
+            const fullscreenImage = document.getElementById('fullscreenImage');
+            fullscreenImage.src = imageSrc;
+            fullscreenImage.alt = imageTitle;
+            
+            const modal = new bootstrap.Modal(document.getElementById('fullscreenImageModal'));
+            modal.show();
+        }
+
+        // Download de imagem
+        function downloadImage(imageSrc, imageTitle) {
+            const link = document.createElement('a');
+            link.href = imageSrc;
+            link.download = imageTitle.replace(/[^a-z0-9]/gi, '_').toLowerCase() + '.png';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
         }
 
         // Alternar idioma
@@ -650,26 +853,50 @@
                 }
             });
             
-            // Atualizar placeholders
-            document.querySelectorAll('[data-lang-pt-placeholder]').forEach(element => {
-                if (currentLang === 'pt') {
-                    element.placeholder = element.getAttribute('data-lang-pt-placeholder');
-                } else {
-                    element.placeholder = element.getAttribute('data-lang-en-placeholder');
-                }
-            });
-            
-            // Atualizar títulos dos vídeos no modal se estiver aberto
-            const modal = document.getElementById('projectVideosModal');
+            // Atualizar títulos dos modais se estiverem abertos
+            const modal = document.getElementById('projectMediaModal');
             if (modal.classList.contains('show')) {
-                const modalTitle = document.getElementById('projectVideosModalLabel');
+                const modalTitle = document.getElementById('projectMediaModalLabel');
                 const projectName = modalTitle.textContent.split(' - ')[0];
                 modalTitle.textContent = currentLang === 'pt' 
-                    ? `${projectName} - Vídeos` 
-                    : `${projectName} - Videos`;
+                    ? `${projectName} - Mídias` 
+                    : `${projectName} - Media`;
                 
                 // Atualizar botão de fechar
-                const closeBtn = document.querySelector('#projectVideosModal .btn-secondary');
+                const closeBtn = document.querySelector('#projectMediaModal .btn-secondary');
+                closeBtn.textContent = currentLang === 'pt' ? 'Fechar' : 'Close';
+                
+                // Atualizar filtros
+                document.getElementById('filterAll').textContent = currentLang === 'pt' ? 'Todas' : 'All';
+                document.getElementById('filterVideos').textContent = currentLang === 'pt' ? 'Vídeos' : 'Videos';
+                document.getElementById('filterImages').textContent = currentLang === 'pt' ? 'Imagens' : 'Images';
+                
+                // Atualizar badge do tipo
+                const typeBadge = document.getElementById('mediaTypeBadge');
+                if (typeBadge) {
+                    const badgeContent = typeBadge.getAttribute('data-lang-pt');
+                    if (badgeContent) {
+                        typeBadge.querySelector('.badge').innerHTML = currentLang === 'pt'
+                            ? `<i class="bi ${typeBadge.querySelector('i').className.split(' ')[1]} me-1"></i> ${badgeContent}`
+                            : `<i class="bi ${typeBadge.querySelector('i').className.split(' ')[1]} me-1"></i> ${typeBadge.getAttribute('data-lang-en')}`;
+                    }
+                }
+                
+                // Atualizar botões de imagem
+                const imageButtons = document.querySelectorAll('.image-controls button span');
+                imageButtons.forEach(btn => {
+                    if (btn.getAttribute('data-lang-pt')) {
+                        btn.textContent = currentLang === 'pt' 
+                            ? btn.getAttribute('data-lang-pt') 
+                            : btn.getAttribute('data-lang-en');
+                    }
+                });
+            }
+            
+            // Atualizar modal de tela cheia
+            const fullscreenModal = document.getElementById('fullscreenImageModal');
+            if (fullscreenModal.classList.contains('show')) {
+                const closeBtn = fullscreenModal.querySelector('.btn-outline-light');
                 closeBtn.textContent = currentLang === 'pt' ? 'Fechar' : 'Close';
             }
         }

@@ -268,6 +268,215 @@
         </div>
     </section>
 
+        <!-- ========== SEÇÃO DE MÚSICA - PROFISSIONAL COM LETRA ========== -->
+    <section id="music" class="py-5">
+        <div class="container py-4">
+            <div class="music-showcase">
+                <!-- Elementos decorativos -->
+                <div class="music-glow"></div>
+                <div class="music-glow-second"></div>
+                
+                <div class="music-content">
+                    <div class="row">
+                        <div class="col-lg-12 text-center mb-4">
+                            <div class="d-flex align-items-center gap-3 justify-content-center">
+                                <div class="music-wave-icon">
+                                    <i class="bi bi-music-note-beamed"></i>
+                                </div>
+                                <span class="music-badge">
+                                    <i class="bi bi-stars"></i>
+                                    <span data-lang-pt="Produção Original" data-lang-en="Original Production">Produção Original</span>
+                                </span>
+                            </div>
+                            <h2 class="display-5 fw-bold mt-3 text-white" data-lang-pt="Minha Criação Musical" data-lang-en="My Musical Creation">
+                                Minha Criação Musical
+                            </h2>
+                            <p class="text-white-50" data-lang-pt="Projeto musical autoral produzido com auxílio de IA, inspirado na atmosfera única da Copa do Mundo." 
+                            data-lang-en="Original musical project produced with AI assistance, inspired by the unique atmosphere of the World Cup.">
+                                Projeto musical autoral produzido com auxílio de IA, inspirado na atmosfera única da Copa do Mundo.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="row g-4">
+                        <!-- Player e Info -->
+                        <div class="col-lg-5">
+                            <div class="audio-card p-4 h-100">
+                                <div class="text-center mb-4">
+                                    <div class="vinyl-record mx-auto">
+                                        <i class="bi bi-vinyl-fill vinyl-icon"></i>
+                                    </div>
+                                </div>
+                                <h5 class="text-white text-center mb-2">Four Years On</h5>
+                                <p class="text-white-50 small text-center mb-4" data-lang-pt="Experiência imersiva · Estéreo" data-lang-en="Immersive experience · Stereo">Experiência imersiva · Estéreo</p>
+                                
+                                <!-- Player de áudio -->
+                                <audio controls class="custom-audio-player w-100" id="musicPlayer">
+                                    <source src="assets/projetos/musica/Four Years On.mp3" type="audio/mpeg">
+                                    Seu navegador não suporta áudio HTML5.
+                                </audio>
+                                
+                                <div class="d-flex justify-content-between align-items-center mt-4">
+                                    
+                                    <div class="text-white-50 small">
+                                        <i class="bi bi-headphones"></i> 
+                                        <span data-lang-pt="Ouça com fones" data-lang-en="Best with headphones">Ouça com fones</span>
+                                    </div>
+                                </div>
+                                
+                                <!-- Tags -->
+                                <div class="mt-4 d-flex flex-wrap gap-2 justify-content-center">
+                                    <span class="music-tag"><i class="bi bi-soundwave"></i> Suno</span>
+                                    <span class="music-tag"><i class="bi bi-clock"></i> 4:29</span>
+                                    <span class="music-tag"><i class="bi bi-cup-hot"></i> Original</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Letra da Música -->
+                        <div class="col-lg-7">
+                            <div class="lyrics-card">
+                                <div class="lyrics-header">
+                                    <i class="bi bi-chat-quote-fill"></i>
+                                    <span data-lang-pt="Letra da Música" data-lang-en="Lyrics">Letra da Música</span>
+                                    <button class="lyrics-toggle-btn" id="toggleLyricsBtn" title="Expandir/Recolher">
+                                        <i class="bi bi-chevron-down"></i>
+                                    </button>
+                                </div>
+                                <div class="lyrics-content" id="lyricsContent">
+                                    <div class="lyrics-text">
+                                        <div class="lyrics-section">
+                                            <div class="lyrics-label">[Intro]</div>
+                                            <div class="lyrics-line">Ay, ay, ay</div>
+                                            <div class="lyrics-line">Mm, mm, mm</div>
+                                            <div class="lyrics-line">Little voices in the rain</div>
+                                            <div class="lyrics-line">Say our names in different ways</div>
+                                            <div class="lyrics-line">Hands up high, the night begins</div>
+                                            <div class="lyrics-line">Hear the whole world breathe again</div>
+                                        </div>
+                                        
+                                        <div class="lyrics-section">
+                                            <div class="lyrics-label">[Verse 1]</div>
+                                            <div class="lyrics-line">From every street and shore</div>
+                                            <div class="lyrics-line">We came here for one more</div>
+                                            <div class="lyrics-line">A dream stitched in our flags</div>
+                                            <div class="lyrics-line">With dirt on every path</div>
+                                            <div class="lyrics-line">Grandmothers on the screen</div>
+                                            <div class="lyrics-line">Boys with painted faces beam</div>
+                                            <div class="lyrics-line">Tears fall on the corner bar</div>
+                                            <div class="lyrics-line">A nation learns who we are</div>
+                                        </div>
+                                        
+                                        <div class="lyrics-section">
+                                            <div class="lyrics-label">[Pre-Chorus]</div>
+                                            <div class="lyrics-line">Hold your breath</div>
+                                            <div class="lyrics-line">Feel that drum</div>
+                                            <div class="lyrics-line">Every heart</div>
+                                            <div class="lyrics-line">Beats as one</div>
+                                            <div class="lyrics-line">One more step</div>
+                                            <div class="lyrics-line">One more flame</div>
+                                            <div class="lyrics-line">Every kid</div>
+                                            <div class="lyrics-line">Knows the game</div>
+                                        </div>
+                                        
+                                        <div class="lyrics-section highlight-chorus">
+                                            <div class="lyrics-label">[Chorus]</div>
+                                            <div class="lyrics-line">We rise, we rise</div>
+                                            <div class="lyrics-line">Four years on</div>
+                                            <div class="lyrics-line">We cry, we cry</div>
+                                            <div class="lyrics-line">Then sing on strong</div>
+                                            <div class="lyrics-line">One world, one sound</div>
+                                            <div class="lyrics-line">In this moment now</div>
+                                            <div class="lyrics-line">We rise, we rise</div>
+                                            <div class="lyrics-line">The world is ours</div>
+                                        </div>
+                                        
+                                        <div class="lyrics-section">
+                                            <div class="lyrics-label">[Verse 2]</div>
+                                            <div class="lyrics-line">The keeper flies through time</div>
+                                            <div class="lyrics-line">A miracle in one line</div>
+                                            <div class="lyrics-line">A striker turns and runs</div>
+                                            <div class="lyrics-line">Like thunder through the sun</div>
+                                            <div class="lyrics-line">Old legends in the stands</div>
+                                            <div class="lyrics-line">New names in young hands</div>
+                                            <div class="lyrics-line">Every scar, every shout</div>
+                                            <div class="lyrics-line">Turns history inside out</div>
+                                        </div>
+                                        
+                                        <div class="lyrics-section">
+                                            <div class="lyrics-label">[Pre-Chorus]</div>
+                                            <div class="lyrics-line">Hold your breath</div>
+                                            <div class="lyrics-line">Feel that drum</div>
+                                            <div class="lyrics-line">Every heart</div>
+                                            <div class="lyrics-line">Beats as one</div>
+                                            <div class="lyrics-line">One more pass</div>
+                                            <div class="lyrics-line">One more night</div>
+                                            <div class="lyrics-line">Every soul</div>
+                                            <div class="lyrics-line">Chasing light</div>
+                                        </div>
+                                        
+                                        <div class="lyrics-section highlight-chorus">
+                                            <div class="lyrics-label">[Chorus]</div>
+                                            <div class="lyrics-line">We rise, we rise</div>
+                                            <div class="lyrics-line">Four years on</div>
+                                            <div class="lyrics-line">We cry, we cry</div>
+                                            <div class="lyrics-line">Then sing on strong</div>
+                                            <div class="lyrics-line">One world, one sound</div>
+                                            <div class="lyrics-line">In this moment now</div>
+                                            <div class="lyrics-line">We rise, we rise</div>
+                                            <div class="lyrics-line">The world is ours</div>
+                                        </div>
+                                        
+                                        <div class="lyrics-section">
+                                            <div class="lyrics-label">[Bridge]</div>
+                                            <div class="lyrics-line">Ooh, from the alleys to the hills</div>
+                                            <div class="lyrics-line">Ooh, hear the future standing still</div>
+                                            <div class="lyrics-line">Ooh, when the whistle finally calls</div>
+                                            <div class="lyrics-line">We carry all of us</div>
+                                        </div>
+                                        
+                                        <div class="lyrics-section highlight-chorus">
+                                            <div class="lyrics-label">[Final Chorus]</div>
+                                            <div class="lyrics-line">We rise, we rise</div>
+                                            <div class="lyrics-line">Four years on</div>
+                                            <div class="lyrics-line">We cry, we cry</div>
+                                            <div class="lyrics-line">Then sing on strong</div>
+                                            <div class="lyrics-line">One world, one sound</div>
+                                            <div class="lyrics-line">In this moment now</div>
+                                            <div class="lyrics-line">We rise, we rise</div>
+                                            <div class="lyrics-line">The world is ours</div>
+                                            <div class="lyrics-line mt-2">We rise, we rise</div>
+                                            <div class="lyrics-line">Hands in the sky</div>
+                                            <div class="lyrics-line">We cry, we cry</div>
+                                            <div class="lyrics-line">But we feel alive</div>
+                                            <div class="lyrics-line">One world, one sound</div>
+                                            <div class="lyrics-line">Let it shake the ground</div>
+                                            <div class="lyrics-line">We rise, we rise</div>
+                                            <div class="lyrics-line">The world is ours</div>
+                                        </div>
+
+                                         <div class="lyrics-section">
+                                            <div class="lyrics-label">[Outro]</div>
+                                            <div class="lyrics-line">Ay, ay, ay</div>
+                                            <div class="lyrics-line">(We rise, we rise)</div>
+                                            <div class="lyrics-line">Mm, mm, mm</div>
+                                            <div class="lyrics-line">(The world is ours)</div>
+                                            <div class="lyrics-line">Hey, hey, hey</div>
+                                            <div class="lyrics-line">(We rise, we rise)</div>
+                                            <div class="lyrics-line">Oooh-oh-oh</div>
+                                            <div class="lyrics-line">(The world is ours)</div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
     <!-- Projects Section -->
     <section id="projects" class="py-5">
         <div class="container py-5">
@@ -526,18 +735,25 @@
                 }
             ],
             'corporativos': [
+                // {
+                //     type: 'video',
+                //     title: 'Intranet Corporativa',
+                //     description: 'Sistema de intranet corporativa desenvolvido',
+                //     path: 'assets/projetos/corporativos/Intranet/apresentacao.mp4',
+                //     thumbnail: 'assets/projetos/corporativos/Intranet/inicio.png'
+                // },
+                // {
+                //     type: 'video',
+                //     title: 'Tech Health',
+                //     description: 'Sistema de automação para saúde',
+                //     path: 'assets/projetos/corporativos/TechHealth/apresentacao_.mp4',
+                //     thumbnail: 'assets/projetos/corporativos/TechHealth/Dashboard.png'
+                // },
                 {
-                    type: 'video',
-                    title: 'Intranet Corporativa',
-                    description: 'Sistema de intranet corporativa desenvolvido',
-                    path: 'assets/projetos/corporativos/Intranet/apresentacao.mp4',
-                    thumbnail: 'assets/projetos/corporativos/Intranet/inicio.png'
-                },
-                {
-                    type: 'video',
+                    type: 'image',
                     title: 'Tech Health',
                     description: 'Sistema de automação para saúde',
-                    path: 'assets/projetos/corporativos/TechHealth/apresentacao_.mp4',
+                    path: 'assets/projetos/corporativos/TechHealth/Dashboard.png',
                     thumbnail: 'assets/projetos/corporativos/TechHealth/Dashboard.png'
                 },
                 {

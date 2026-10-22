@@ -26,7 +26,7 @@ const projectMedia = {
         {
             type: 'image',
             title: { pt: 'Sala de espera', en: 'Waiting room' },
-            description: { pt: 'O anfitrião escolhe bar, modo (Casual ou +18) e rodadas; os amigos entram pelo código, inclusive pelo navegador.', en: 'The host picks the bar, the mode (Casual or 18+) and the rounds; friends join with the code, browser included.' },
+            description: { pt: 'O anfitrião escolhe bar, modo (Casual ou +18) e rodadas; os amigos entram pelo código.', en: 'The host picks the bar, the mode (Casual or 18+) and the rounds; friends join with the code.' },
             path: SEM_CONTEXTO + 'telas/sala-praia.jpg'
         },
         {

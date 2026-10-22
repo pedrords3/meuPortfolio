@@ -1,1169 +1,542 @@
 <!DOCTYPE html>
-<html lang="pt-BR" data-bs-theme="light">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfólio - Pedro Rodrigues</title>
-    <link rel="icon" type="image/x-icon" href="assets/img/icon.png">
-    <meta name="description" content="Portfólio de Pedro Rodrigues - Desenvolvedor Web Fullstack com mais de 7 anos de experiência">
-    
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    <!-- Google Fonts -->
+    <title>Pedro Rodrigues — Desenvolvedor Fullstack &amp; Game Dev</title>
+    <meta name="description" content="Portfólio de Pedro Rodrigues — Desenvolvedor Web Fullstack com mais de 7 anos de experiência e criador do jogo Sem Contexto 3D (Unity).">
+    <meta name="theme-color" content="#0a0b0e">
+    <link rel="icon" type="image/png" href="assets/img/icon.png">
+
+    <meta property="og:title" content="Pedro Rodrigues — Fullstack &amp; Game Dev">
+    <meta property="og:description" content="Sites, sistemas e jogos. Conheça meus projetos e baixe o Sem Contexto 3D.">
+    <meta property="og:image" content="https://pedrords3.github.io/meuPortfolio/assets/projetos/sem-contexto/telas/mesa-praia.jpg">
+    <meta property="og:type" content="website">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+
+    <script src="assets/js/projetos.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
 </head>
 <body>
-    <!-- Language Switcher -->
-    <div class="language-switcher">
-        <div class="lang-btn" id="langToggle">BR</div>
-    </div>
+    <a class="skip-link" href="#conteudo" data-en="Skip to content">Pular para o conteúdo</a>
 
-    <!-- Modal para Galeria de Mídia -->
-    <div class="modal fade" id="projectMediaModal" tabindex="-1" aria-labelledby="projectMediaModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-xl modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="projectMediaModalLabel"></h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <!-- Área da mídia principal -->
-                        <div class="col-lg-8">
-                            <div class="main-media-container" id="mainMediaContainer">
-                                <!-- O vídeo ou imagem será inserido aqui via JavaScript -->
-                            </div>
-                            <div class="media-info mt-3">
-                                <h6 id="currentMediaTitle"></h6>
-                                <p class="text-muted small" id="currentMediaDescription"></p>
-                                <div class="media-type-badge" id="mediaTypeBadge"></div>
-                            </div>
-                        </div>
-                        
-                        <!-- Lista de mídias -->
-                        <div class="col-lg-4">
-                            <div class="d-flex justify-content-between align-items-center mb-3">
-                                <h6 class="mb-0" data-lang-pt="Mídias do Projeto" data-lang-en="Project Media">Mídias do Projeto</h6>
-                                <div class="btn-group btn-group-sm" role="group">
-                                    <button type="button" class="btn btn-outline-secondary active" id="filterAll" data-lang-pt="Todas" data-lang-en="All">Todas</button>
-                                    <button type="button" class="btn btn-outline-secondary" id="filterVideos" data-lang-pt="Vídeos" data-lang-en="Videos">Vídeos</button>
-                                    <button type="button" class="btn btn-outline-secondary" id="filterImages" data-lang-pt="Imagens" data-lang-en="Images">Imagens</button>
-                                </div>
-                            </div>
-                            <div class="media-list" id="mediaList">
-                                <!-- A lista de mídias será inserida aqui via JavaScript -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-lang-pt="Fechar" data-lang-en="Close">Fechar</button>
-                </div>
-            </div>
+    <!-- Intro -->
+    <div class="intro" aria-hidden="true">
+        <div class="intro__inner">
+            <span class="intro__name">Pedro Rodrigues</span>
+            <span class="intro__count">000</span>
         </div>
+        <div class="intro__bar"><i></i></div>
     </div>
 
-    <!-- Modal para Imagem em Tela Cheia -->
-    <div class="modal fade" id="fullscreenImageModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-fullscreen">
-            <div class="modal-content bg-dark">
-                <div class="modal-header border-0">
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body d-flex justify-content-center align-items-center">
-                    <img id="fullscreenImage" src="" alt="" class="img-fluid" style="max-height: 90vh; object-fit: contain;">
-                </div>
-                <div class="modal-footer border-0 justify-content-center">
-                    <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal" data-lang-pt="Fechar" data-lang-en="Close">Fechar</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div class="cursor" aria-hidden="true"><span class="cursor__label"></span></div>
+    <div class="hover-preview" aria-hidden="true"><img alt=""></div>
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg bg-nav fixed-top shadow-sm">
-        <div class="container">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
+    <!-- Header -->
+    <header class="site-header">
+        <a class="brand" href="#inicio" aria-label="Pedro Rodrigues — início">
+            <span class="brand__mark">PR</span>
+            <span class="brand__text">Pedro<br>Rodrigues</span>
+        </a>
+
+        <nav class="nav" id="nav" aria-label="Principal">
+            <a href="#sobre" data-en="About">Sobre</a>
+            <a href="#jogo" data-en="Game">Jogo</a>
+            <a href="#projetos" data-en="Work">Projetos</a>
+            <a href="#habilidades" data-en="Skills">Habilidades</a>
+            <a href="#contato" data-en="Contact">Contato</a>
+        </nav>
+
+        <div class="header-actions">
+            <span class="status"><i></i><span data-en="Open to work">Disponível</span></span>
+            <button class="lang-toggle" type="button" aria-label="Mudar idioma / Change language">
+                <span class="is-active" data-lang="pt">PT</span><span data-lang="en">EN</span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#home" data-lang-pt="Início" data-lang-en="Home">Início</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#about" data-lang-pt="Sobre" data-lang-en="About">Sobre</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#skills" data-lang-pt="Habilidades" data-lang-en="Skills">Habilidades</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#projects" data-lang-pt="Projetos" data-lang-en="Projects">Projetos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#contact" data-lang-pt="Contato" data-lang-en="Contact">Contato</a>
-                    </li>
-                </ul>
+            <button class="menu-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav">
+                <span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <main id="conteudo">
+
+        <!-- Hero -->
+        <section class="hero" id="inicio" aria-labelledby="hero-title">
+            <div class="hero__grid" aria-hidden="true"></div>
+
+            <div class="hero__top">
+                <p class="eyebrow hero-fade" data-en="Fullstack developer / Game dev">Desenvolvedor fullstack / Game dev</p>
+                <p class="eyebrow hero-fade">Brasil — 2026</p>
+            </div>
+
+            <h1 class="hero__title" id="hero-title">
+                <span class="line"><span class="split">Pedro</span></span>
+                <span class="line line--outline"><span class="split">Rodrigues</span></span>
+            </h1>
+
+            <figure class="hero__portrait hero-fade" data-parallax="40">
+                <img src="assets/img/perfil.jpg" alt="Foto de Pedro Rodrigues" width="1206" height="2144" fetchpriority="high">
+                <figcaption><strong>7+</strong> <span data-en="years building for the web">anos construindo para a web</span></figcaption>
+            </figure>
+
+            <div class="hero__bottom">
+                <p class="hero__lead hero-fade" data-en="I build fast, responsive web products — and, lately, games. Front-end with attention to detail, back-end that holds up in production.">Crio produtos web rápidos e responsivos — e, ultimamente, jogos. Front-end com atenção aos detalhes, back-end que aguenta produção.</p>
+                <div class="hero__ctas hero-fade">
+                    <a class="btn btn--accent" href="#jogo" data-cursor="Jogar"><span data-en="Play Sem Contexto 3D">Jogar Sem Contexto 3D</span><i class="bi bi-arrow-down-right"></i></a>
+                    <a class="btn btn--ghost" href="#projetos"><span data-en="View work">Ver projetos</span></a>
+                </div>
+            </div>
+
+            <a class="scroll-cue hero-fade" href="#sobre" aria-label="Rolar para baixo">
+                <span data-en="Scroll">Role</span><i></i>
+            </a>
+        </section>
+
+        <!-- Ticker -->
+        <div class="ticker" aria-hidden="true">
+            <div class="ticker__track">
+                <span>JavaScript</span><b>✦</b><span>PHP</span><b>✦</b><span>React</span><b>✦</b><span>Node.js</span><b>✦</b><span>Unity</span><b>✦</b><span>C#</span><b>✦</b><span>TypeScript</span><b>✦</b><span>MySQL</span><b>✦</b><span>WebSocket</span><b>✦</b><span>Python</span><b>✦</b>
             </div>
         </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero-section">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6 order-lg-2 text-center mb-5 mb-lg-0">
-                    <img src="assets/img/perfil.jpg" alt="Pedro Rodrigues" class="profile-img rounded-circle">
+        <!-- Sobre -->
+        <section class="about section" id="sobre" aria-labelledby="about-title">
+            <div class="section-label">
+                <span>01</span>
+                <h2 id="about-title" data-en="About">Sobre</h2>
+            </div>
+
+            <p class="statement" data-words data-en="I'm Pedro, a web developer with 7+ years of experience. I move comfortably between front-end and back-end, I'm currently deepening my knowledge of security, and I'm looking for opportunities with international teams.">Sou o Pedro, desenvolvedor web com mais de 7 anos de experiência. Transito bem entre front-end e back-end, estou me aprofundando em segurança e busco oportunidades com times internacionais.</p>
+
+            <div class="stats">
+                <div class="stat reveal">
+                    <strong><span data-counter="7">0</span>+</strong>
+                    <span data-en="years of experience">anos de experiência</span>
                 </div>
-                <div class="col-lg-6 order-lg-1">
-                    <h3 class="text-secondary code-font" data-lang-pt="Olá, eu sou" data-lang-en="Hello, I'm">Olá, eu sou</h3>
-                    <h1 class="display-4 fw-bold mb-3">Pedro Rodrigues</h1>
-                    <h2 class="h3 mb-4" data-lang-pt="Desenvolvedor Web Fullstack" data-lang-en="Fullstack Web Developer">Desenvolvedor Web Fullstack</h2>
-                    <p class="lead mb-4" data-lang-pt="Com mais de 7 anos de experiência em desenvolvimento web. Especializado em criar aplicações modernas, responsivas e de alto desempenho." data-lang-en="With over 7 years of experience in web development. Specialized in creating modern, responsive, and high-performance applications.">
-                        Com mais de 7 anos de experiência em desenvolvimento web. Especializado em criar aplicações modernas, responsivas e de alto desempenho.
-                    </p>
-                    <div class="d-flex flex-wrap gap-3">
-                        <a href="#projects" class="btn btn-primary-custom" data-lang-pt="Ver Projetos" data-lang-en="View Projects">Ver Projetos</a>
-                        <a href="#contact" class="btn btn-outline-light" data-lang-pt="Contato" data-lang-en="Contact">Contato</a>
+                <div class="stat reveal">
+                    <strong><span data-counter="7">0</span></strong>
+                    <span data-en="featured projects">projetos em destaque</span>
+                </div>
+                <div class="stat reveal">
+                    <strong><span data-counter="12">0</span></strong>
+                    <span data-en="3D characters created">personagens 3D criados</span>
+                </div>
+                <div class="stat reveal">
+                    <strong>PT/EN</strong>
+                    <span data-en="languages">idiomas</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Jogo em destaque -->
+        <section class="game" id="jogo" aria-labelledby="game-title">
+            <div class="game__glow" aria-hidden="true"></div>
+
+            <div class="game__head section">
+                <div class="section-label">
+                    <span>02</span>
+                    <h2 data-en="Featured project">Projeto em destaque</h2>
+                </div>
+
+                <div class="game__intro">
+                    <div class="game__title-wrap reveal">
+                        <p class="eyebrow eyebrow--warm">Unity 6 · C# · Node.js</p>
+                        <h3 class="game__title" id="game-title">Sem<br>Contexto <span>3D</span></h3>
+                        <div class="game__faces" aria-hidden="true">
+                            <img src="assets/projetos/sem-contexto/expressoes/gata-risada.jpg" alt="" loading="lazy">
+                            <img src="assets/projetos/sem-contexto/expressoes/capivara-piscadinha.jpg" alt="" loading="lazy">
+                            <img src="assets/projetos/sem-contexto/expressoes/touro-bebado.jpg" alt="" loading="lazy">
+                            <img src="assets/projetos/sem-contexto/expressoes/lobo-susto.jpg" alt="" loading="lazy">
+                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- About Section -->
-    <section id="about" class="py-5">
-        <div class="container py-5">
-            <h2 class="section-title" data-lang-pt="Sobre Mim" data-lang-en="About Me">Sobre Mim</h2>
-            <div class="row">
-                <div class="col-lg-8">
-                    <p data-lang-pt="Meu nome é Pedro Rodrigues. Sou desenvolvedor web com mais de 7 anos de experiência. Tenho facilidade com desenvolvimento front-end e também trabalho no back-end. Atualmente estou focado em aprender mais sobre segurança, e busco oportunidades para trabalhar com empresas internacionais." data-lang-en="My name is Pedro Rodrigues. I'm a web developer with over 7 years of experience. I'm proficient in front-end development and I also work on back-end. Currently, I'm focused on learning more about security, and I'm looking for opportunities to work with international companies.">
-                        Meu nome é Pedro Rodrigues. Sou desenvolvedor web com mais de 7 anos de experiência. Tenho facilidade com desenvolvimento front-end e também trabalho no back-end. Atualmente estou focado em aprender mais sobre segurança, e busco oportunidades para trabalhar com empresas internacionais.
-                    </p>
-                    <p data-lang-pt="Estou sempre em busca de novos desafios e oportunidades para aplicar minhas habilidades em projetos interessantes." data-lang-en="I'm always looking for new challenges and opportunities to apply my skills in interesting projects.">
-                        Estou sempre em busca de novos desafios e oportunidades para aplicar minhas habilidades em projetos interessantes.
-                    </p>
-                    
-                    <div class="mt-4">
-                        <h4 class="mb-3" data-lang-pt="Tecnologias que utilizo:" data-lang-en="Technologies I use:">Tecnologias que utilizo:</h4>
-                        <div class="d-flex flex-wrap">
-                            <span class="skill-badge">HTML5</span>
-                            <span class="skill-badge">CSS3</span>
-                            <span class="skill-badge">JavaScript</span>
-                            <span class="skill-badge">React</span>
-                            <span class="skill-badge">Node.js</span>
-                            <span class="skill-badge">PHP</span>
-                            <span class="skill-badge">Bootstrap</span>
-                            <span class="skill-badge">Tailwind CSS</span>
-                            <span class="skill-badge">Git</span>
-                            <span class="skill-badge">WebSocket</span>
-                            <span class="skill-badge">Python</span>
-                            <span class="skill-badge">MySQL</span>
-                            <span class="skill-badge">Oracle</span>
-                            <span class="skill-badge">SqlServer</span>
+                    <div class="game__copy reveal">
+                        <div class="game__text">
+                            <p class="game__lead" data-en="An online multiplayer party card game where you and your friends sit around a table in a bar, each as a 3D animal character, to complete absurd sentences with the funniest card in your hand.">Um jogo de cartas multiplayer online em que você e seus amigos sentam à mesa de um bar, cada um na pele de um personagem animal em 3D, para completar frases absurdas com a carta mais engraçada da mão.</p>
+                            <p data-en="Every round someone reads a question, everyone plays an answer and the table votes for the best one. In between, you can look around, react with facial expressions, grab a drink and steal your friends' snacks. I built all of it: the Unity client, the scenes, the procedural characters and the real-time server.">A cada rodada alguém lê uma pergunta, todos jogam uma resposta e a mesa vota na melhor. No meio disso dá para olhar em volta, reagir com expressões, pegar uma bebida e roubar o petisco dos amigos. Desenvolvi tudo: o cliente em Unity, os cenários, os personagens procedurais e o servidor em tempo real.</p>
+                        </div>
+
+                        <div class="play-card" id="download">
+                            <span class="play-card__badge" data-en="Version 1.0 · free">Versão 1.0 · grátis</span>
+
+                            <a class="play-option play-option--primary" href="https://sem-contexto.onrender.com/" target="_blank" rel="noopener" data-cursor="Jogar">
+                                <i class="bi bi-globe2"></i>
+                                <span class="play-option__text">
+                                    <strong data-en="Play in the browser">Jogar no navegador</strong>
+                                    <small data-en="Nothing to install · opens in a new tab">Sem instalar nada · abre em uma nova aba</small>
+                                </span>
+                                <i class="bi bi-arrow-up-right play-option__arrow"></i>
+                            </a>
+
+                            <a class="play-option" href="https://github.com/pedrords3/meuPortfolio/releases/latest/download/SemContexto3D-Windows.zip" data-cursor="Baixar">
+                                <i class="bi bi-windows"></i>
+                                <span class="play-option__text">
+                                    <strong data-en="Download for Windows">Baixar para Windows</strong>
+                                    <small>Windows 10/11 · 64-bit · .zip 109 MB</small>
+                                </span>
+                                <i class="bi bi-download play-option__arrow"></i>
+                            </a>
+
+                            <p class="play-card__note"><i class="bi bi-people"></i><span data-en="Browser and Windows players share the same rooms.">Quem joga no navegador e no Windows entra na mesma sala.</span></p>
+
+                            <div class="play-card__foot">
+                                <button class="play-card__gallery view-media-btn" type="button" data-project="semContexto" data-project-name="Sem Contexto 3D">
+                                    <i class="bi bi-images"></i><span data-en="Screenshots and video">Prints e vídeo</span>
+                                </button>
+                                <a href="https://github.com/pedrords3/meuPortfolio/releases" target="_blank" rel="noopener" data-en="All versions ↗">Todas as versões ↗</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 mt-5 mt-lg-0">
-                    <div class="card border-0 shadow-sm p-4">
-                        <h4 class="mb-3" data-lang-pt="Informações" data-lang-en="Information">Informações</h4>
-                        <ul class="list-unstyled">
-                            <li class="mb-3">
-                                <i class="bi bi-briefcase-fill text-secondary me-2"></i>
-                                <strong data-lang-pt="Experiência:" data-lang-en="Experience:">Experiência:</strong> 
-                                <span data-lang-pt="7+ anos" data-lang-en="7+ years">7+ anos</span>
-                            </li>
-                            <li class="mb-3">
-                                <i class="bi bi-geo-alt-fill text-secondary me-2"></i>
-                                <strong data-lang-pt="Localização:" data-lang-en="Location:">Localização:</strong> 
-                                <span data-lang-pt="Brasil" data-lang-en="Brazil">Brasil</span>
-                            </li>
-                            <li class="mb-3">
-                                <i class="bi bi-translate text-secondary me-2"></i>
-                                <strong data-lang-pt="Idiomas:" data-lang-en="Languages:">Idiomas:</strong> 
-                                <span data-lang-pt="Português, Inglês" data-lang-en="Portuguese, English">Português, Inglês</span>
-                            </li>
-                            <li class="mb-3">
-                                <i class="bi bi-code-slash text-secondary me-2"></i>
-                                <strong data-lang-pt="Especialidade:" data-lang-en="Specialty:">Especialidade:</strong> 
-                                <span data-lang-pt="Fullstack Web" data-lang-en="Fullstack Web">Fullstack Web</span>
-                            </li>
+            </div>
+
+            <!-- Telas da versão 1.0 -->
+            <div class="shots section" id="telas">
+                <div class="shots__head reveal">
+                    <p class="eyebrow eyebrow--warm" data-en="Version 1.0 / Screens">Versão 1.0 / Telas</p>
+                    <p class="shots__hint" data-en="Click to enlarge">Clique para ampliar</p>
+                </div>
+                <div class="shots__grid">
+                    <button class="shot shot--main view-media-btn reveal" type="button" data-project="semContexto" data-project-name="Sem Contexto 3D" data-index="0" data-cursor="Ver">
+                        <img src="assets/projetos/sem-contexto/telas/mesa-praia.jpg" alt="Doze personagens jogando cartas em uma mesa no quiosque da praia" loading="lazy" width="1283" height="810">
+                        <span data-en="Beach kiosk · 12 players at the table">Quiosque da Praia · 12 jogadores na mesa</span>
+                    </button>
+                    <button class="shot shot--tall view-media-btn reveal" type="button" data-project="semContexto" data-project-name="Sem Contexto 3D" data-index="4" data-cursor="Ver">
+                        <img src="assets/projetos/sem-contexto/telas/touro-cartas.jpg" alt="Personagem Touro segurando suas cartas" loading="lazy" width="577" height="694">
+                        <span data-en="The Bull and his cards">O Touro e suas cartas</span>
+                    </button>
+                    <button class="shot view-media-btn reveal" type="button" data-project="semContexto" data-project-name="Sem Contexto 3D" data-index="1" data-cursor="Ver">
+                        <img src="assets/projetos/sem-contexto/telas/partida-boteco.jpg" alt="Partida no Boteco com a frase da rodada e o placar" loading="lazy" width="1434" height="809">
+                        <span data-en="A match at the Boteco">Partida no Boteco</span>
+                    </button>
+                    <button class="shot view-media-btn reveal" type="button" data-project="semContexto" data-project-name="Sem Contexto 3D" data-index="2" data-cursor="Ver">
+                        <img src="assets/projetos/sem-contexto/telas/menu-pub.jpg" alt="Menu principal do jogo dentro do Pub" loading="lazy" width="1429" height="811">
+                        <span data-en="Home menu at the Pub">Menu inicial no Pub</span>
+                    </button>
+                    <button class="shot view-media-btn reveal" type="button" data-project="semContexto" data-project-name="Sem Contexto 3D" data-index="3" data-cursor="Ver">
+                        <img src="assets/projetos/sem-contexto/telas/sala-praia.jpg" alt="Sala de espera com código, escolha de bar, modo e rodadas" loading="lazy" width="1429" height="802">
+                        <span data-en="Room setup: bar, mode and rounds">Sala: bar, modo e rodadas</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Evolução -->
+            <div class="evolution section" id="evolucao">
+                <div class="evolution__head reveal">
+                    <p class="eyebrow eyebrow--warm" data-en="Behind the scenes">Bastidores</p>
+                    <h4 class="evolution__title" data-en="From prototype<br><em>to version 1.0.</em>">Do protótipo<br><em>à versão 1.0.</em></h4>
+                </div>
+                <ol class="evolution__steps">
+                    <li class="step reveal">
+                        <button class="step__media view-media-btn" type="button" data-project="semContexto" data-project-name="Sem Contexto 3D" data-index="8" data-cursor="Ver">
+                            <img src="assets/projetos/sem-contexto/evolucao/prototipo-4.jpg" alt="Protótipo com personagens em forma de cápsula ao redor de uma mesa" loading="lazy" width="1315" height="736">
+                        </button>
+                        <span class="step__n">01</span>
+                        <strong data-en="Prototype">Protótipo</strong>
+                        <p data-en="Capsule characters and a plain table, but the whole loop already ran against bots: question, cards, voting and scoreboard.">Bonecos de cápsula e uma mesa simples, mas o ciclo inteiro já rodava contra bots: pergunta, cartas, votação e placar.</p>
+                    </li>
+                    <li class="step reveal">
+                        <button class="step__media view-media-btn" type="button" data-project="semContexto" data-project-name="Sem Contexto 3D" data-index="10" data-cursor="Ver">
+                            <img src="assets/projetos/sem-contexto/evolucao/boteco-votacao.jpg" alt="Primeira versão do Boteco com cartas de resposta e placar" loading="lazy" width="1319" height="742">
+                        </button>
+                        <span class="step__n">02</span>
+                        <strong data-en="Identity">Identidade</strong>
+                        <p data-en="The first bar, a custom UI Toolkit interface, timer, bonus rounds and facial expressions.">O primeiro bar, interface própria em UI Toolkit, cronômetro, rodada bônus e expressões faciais.</p>
+                    </li>
+                    <li class="step reveal">
+                        <button class="step__media step__media--video view-media-btn" type="button" data-project="semContexto" data-project-name="Sem Contexto 3D" data-index="12" data-cursor="Assistir">
+                            <img src="assets/projetos/sem-contexto/video/bastidores-editor.jpg" alt="Partida rodando dentro do editor da Unity" loading="lazy" width="1920" height="984">
+                            <i class="bi bi-play-fill" aria-hidden="true"></i>
+                        </button>
+                        <span class="step__n">03</span>
+                        <strong data-en="3D characters">Personagens 3D</strong>
+                        <p data-en="Characters modeled and rigged with Python scripts in Blender start replacing the placeholders, tested live in the editor.">Personagens modelados e riggados com scripts Python no Blender começam a substituir os provisórios, testados ao vivo no editor.</p>
+                    </li>
+                    <li class="step reveal">
+                        <button class="step__media view-media-btn" type="button" data-project="semContexto" data-project-name="Sem Contexto 3D" data-index="13" data-cursor="Ver">
+                            <img src="assets/projetos/sem-contexto/evolucao/pub-editor.jpg" alt="Os doze personagens sentados à mesa do Pub" loading="lazy" width="1387" height="800">
+                        </button>
+                        <span class="step__n">04</span>
+                        <strong data-en="Version 1.0">Versão 1.0</strong>
+                        <p data-en="12 characters, 4 bars, Casual and 18+ modes, a browser version and an online server.">12 personagens, 4 bares, modos Casual e +18, versão para navegador e servidor online.</p>
+                    </li>
+                </ol>
+            </div>
+
+            <!-- Recursos -->
+            <div class="game__features section">
+                <article class="feature reveal">
+                    <i class="bi bi-wifi"></i>
+                    <h4 data-en="Online multiplayer">Multiplayer online</h4>
+                    <p data-en="Create a room, share the code and play with up to 12 people, on Windows or in the browser. Bots fill empty seats and reconnection is automatic.">Crie uma sala, passe o código e jogue com até 12 pessoas, no Windows ou no navegador. Bots completam a mesa e a reconexão é automática.</p>
+                </article>
+                <article class="feature reveal">
+                    <i class="bi bi-cup-straw"></i>
+                    <h4 data-en="Four bars, two modes">Quatro bares, dois modos</h4>
+                    <p data-en="Boteco, Pub, Retro 80s and Beach, each with its own mood. The host picks the bar, the mode (Casual or 18+) and the number of rounds.">Boteco, Pub, Retrô 80 e Praia, cada um com seu clima. O anfitrião escolhe o bar, o modo (Casual ou +18) e o número de rodadas.</p>
+                </article>
+                <article class="feature reveal">
+                    <i class="bi bi-emoji-laughing"></i>
+                    <h4 data-en="Presence at the table">Presença na mesa</h4>
+                    <p data-en="Each player's head follows where they look, and expressions, drinks and snacks are synced in real time with everyone.">A cabeça de cada jogador acompanha para onde ele olha, e expressões, bebidas e petiscos são sincronizados em tempo real com todos.</p>
+                </article>
+                <article class="feature reveal">
+                    <i class="bi bi-hdd-network"></i>
+                    <h4 data-en="Own server">Servidor próprio</h4>
+                    <p data-en="Node.js + TypeScript with WebSocket, Zod validation and an authoritative server: the client only sends intents, never scores. Deployed with Docker on Render.">Node.js + TypeScript com WebSocket, validação com Zod e servidor autoritativo: o cliente só envia intenções, nunca placar. Publicado com Docker no Render.</p>
+                </article>
+            </div>
+
+            <!-- Como jogar -->
+            <div class="howto section" id="como-jogar">
+                <div class="howto__steps">
+                    <h4 class="howto__title reveal" data-en="How to play">Como jogar</h4>
+                    <ol>
+                        <li class="reveal"><span>01</span><div><strong data-en="Open the game">Abra o jogo</strong><p data-en="In the browser, just click <em>Play in the browser</em>. On Windows, download the .zip, right-click → <em>Extract All</em> and open <code>SemContexto3D.exe</code>.">No navegador, é só clicar em <em>Jogar no navegador</em>. No Windows, baixe o .zip, clique com o botão direito → <em>Extrair tudo</em> e abra o <code>SemContexto3D.exe</code>.</p></div></li>
+                        <li class="reveal"><span>02</span><div><strong data-en="Create a room">Crie uma sala</strong><p data-en="Pick your name and character, create the room and choose the bar, mode and number of rounds.">Escolha nome e personagem, crie a sala e defina bar, modo e número de rodadas.</p></div></li>
+                        <li class="reveal"><span>03</span><div><strong data-en="Invite">Convide</strong><p data-en="Share the 5-character room code. Friends join from Windows or the browser.">Passe o código de 5 caracteres da sala. Os amigos entram pelo Windows ou pelo navegador.</p></div></li>
+                        <li class="reveal"><span>04</span><div><strong data-en="Play">Jogue</strong><p data-en="Read the sentence, play the funniest card in your hand and vote for the best answer at the table.">Leia a frase, jogue a carta mais engraçada da mão e vote na melhor resposta da mesa.</p></div></li>
+                    </ol>
+                </div>
+
+                <aside class="howto__side">
+                    <div class="note reveal">
+                        <i class="bi bi-shield-exclamation"></i>
+                        <div>
+                            <strong data-en="Windows warning?">Aviso do Windows?</strong>
+                            <p data-en="The game doesn't have a digital signature yet. If “Windows protected your PC” appears, click <em>More info → Run anyway</em>.">O jogo ainda não tem assinatura digital. Se aparecer “O Windows protegeu o computador”, clique em <em>Mais informações → Executar assim mesmo</em>.</p>
+                        </div>
+                    </div>
+                    <div class="note reveal">
+                        <i class="bi bi-hourglass-split"></i>
+                        <div>
+                            <strong data-en="Connection error?">Erro de conexão?</strong>
+                            <p data-en="The server runs on a free plan and sleeps when nobody is playing. Wait about 1 minute and try again.">O servidor roda em plano gratuito e dorme quando ninguém joga. Espere cerca de 1 minuto e tente de novo.</p>
+                        </div>
+                    </div>
+
+                    <div class="controls reveal">
+                        <strong data-en="Controls">Controles</strong>
+                        <ul>
+                            <li><span class="keys"><kbd>Mouse</kbd></span><span data-en="look around">olhar</span></li>
+                            <li><span class="keys"><kbd>Ctrl</kbd></span><span>zoom</span></li>
+                            <li><span class="keys"><kbd>1</kbd>–<kbd>8</kbd></span><span data-en="expressions">expressões</span></li>
+                            <li><span class="keys"><kbd>C</kbd></span><span data-en="drink">bebida</span></li>
+                            <li><span class="keys"><kbd>X</kbd></span><span data-en="snack">petisco</span></li>
+                            <li><span class="keys"><kbd>Esc</kbd></span><span>menu</span></li>
                         </ul>
                     </div>
+                </aside>
+            </div>
+
+            <div class="stack section reveal">
+                <span data-en="Built with">Feito com</span>
+                <ul>
+                    <li>Unity 6 (URP)</li><li>C#</li><li>UI Toolkit</li><li>Input System</li><li>WebGL</li><li>Blender + Python</li><li>Node.js 22</li><li>TypeScript</li><li>WebSocket</li><li>Zod</li><li>Vitest</li><li>Docker</li><li>Render</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Projetos -->
+        <section class="projects section" id="projetos" aria-labelledby="projects-title">
+            <div class="section-label">
+                <span>03</span>
+                <h2 id="projects-title" data-en="Selected work">Projetos</h2>
+            </div>
+
+            <ul class="project-list">
+                <li class="project reveal" data-preview="assets/projetos/hextech/baner.png">
+                    <button class="project__link view-media-btn" type="button" data-project="hextech" data-project-name="Hextech Solutions" data-cursor="Ver">
+                        <span class="project__index">01</span>
+                        <span class="project__name">Hextech Solutions</span>
+                        <span class="project__desc" data-en="Institutional website for my company, focused on services and contact.">Site institucional da minha empresa, com foco em serviços e contato.</span>
+                        <span class="project__tags">HTML · CSS · Bootstrap · JS · PHP</span>
+                        <span class="project__action"><span data-en="Media">Mídias</span> <i class="bi bi-play-circle"></i></span>
+                    </button>
+                    <img class="project__thumb" src="assets/projetos/hextech/baner.png" alt="" loading="lazy">
+                </li>
+                <li class="project reveal" data-preview="assets/projetos/tecgebras/baner.png">
+                    <a class="project__link" href="https://www.tecgebras.com.br/" target="_blank" rel="noopener" data-cursor="Visitar">
+                        <span class="project__index">02</span>
+                        <span class="project__name">Tecgebras Geradores</span>
+                        <span class="project__desc" data-en="Modern institutional website presenting the company's services and contact.">Site institucional moderno com foco na apresentação dos serviços e contato da empresa.</span>
+                        <span class="project__tags">HTML · CSS · Bootstrap · PHP</span>
+                        <span class="project__action"><span data-en="Visit">Visitar</span> <i class="bi bi-arrow-up-right"></i></span>
+                    </a>
+                    <img class="project__thumb" src="assets/projetos/tecgebras/baner.png" alt="" loading="lazy">
+                </li>
+                <li class="project reveal" data-preview="assets/projetos/controleFinanceiro/baner.png">
+                    <a class="project__link" href="https://pedrords3.github.io/financa-simples/" target="_blank" rel="noopener" data-cursor="Abrir">
+                        <span class="project__index">03</span>
+                        <span class="project__name" data-en="Finance Control">Controle Financeiro</span>
+                        <span class="project__desc" data-en="Web app to manage personal and business finances.">Aplicação para controlar finanças pessoais e empresariais.</span>
+                        <span class="project__tags">HTML · CSS · Bootstrap · JS</span>
+                        <span class="project__action"><span data-en="Open">Abrir</span> <i class="bi bi-arrow-up-right"></i></span>
+                    </a>
+                    <img class="project__thumb" src="assets/projetos/controleFinanceiro/baner.png" alt="" loading="lazy">
+                </li>
+                <li class="project reveal" data-preview="assets/projetos/karaoke/baner.png">
+                    <button class="project__link view-media-btn" type="button" data-project="karaoke" data-project-name="Karaoke" data-cursor="Ver">
+                        <span class="project__index">04</span>
+                        <span class="project__name">Karaoke</span>
+                        <span class="project__desc" data-en="Online karaoke to play and sing right in the browser.">Karaokê online para tocar e cantar direto no navegador.</span>
+                        <span class="project__tags">HTML · CSS · Bootstrap · JS · PHP · JSON</span>
+                        <span class="project__action"><span data-en="Media">Mídias</span> <i class="bi bi-play-circle"></i></span>
+                    </button>
+                    <img class="project__thumb" src="assets/projetos/karaoke/baner.png" alt="" loading="lazy">
+                </li>
+                <li class="project reveal" data-preview="assets/projetos/agendaClinica/baner.png">
+                    <button class="project__link view-media-btn" type="button" data-project="agendaClinica" data-project-name="Agenda Clínica" data-cursor="Ver">
+                        <span class="project__index">05</span>
+                        <span class="project__name" data-en="Clinic Scheduler">Agenda Clínica</span>
+                        <span class="project__desc" data-en="System for booking clinic appointments.">Sistema para agendamento de consultas clínicas.</span>
+                        <span class="project__tags">HTML · CSS · Bootstrap · JS · PHP · MySQL</span>
+                        <span class="project__action"><span data-en="Media">Mídias</span> <i class="bi bi-play-circle"></i></span>
+                    </button>
+                    <img class="project__thumb" src="assets/projetos/agendaClinica/baner.png" alt="" loading="lazy">
+                </li>
+                <li class="project reveal" data-preview="assets/projetos/corporativos/baner.png">
+                    <button class="project__link view-media-btn" type="button" data-project="corporativos" data-project-name="Projetos Corporativos" data-cursor="Ver">
+                        <span class="project__index">06</span>
+                        <span class="project__name" data-en="Corporate Projects">Projetos Corporativos</span>
+                        <span class="project__desc" data-en="Internal systems: a healthcare automation dashboard and an email signature generator.">Sistemas internos: dashboard de automação para saúde e gerador de assinaturas de e-mail.</span>
+                        <span class="project__tags">React · Python · PHP · JS · JSON</span>
+                        <span class="project__action"><span data-en="Media">Mídias</span> <i class="bi bi-images"></i></span>
+                    </button>
+                    <img class="project__thumb" src="assets/projetos/corporativos/baner.png" alt="" loading="lazy">
+                </li>
+            </ul>
+
+            <a class="more-link reveal" href="https://github.com/pedrords3" target="_blank" rel="noopener">
+                <i class="bi bi-github"></i>
+                <span data-en="More projects on GitHub">Mais projetos no GitHub</span>
+                <i class="bi bi-arrow-up-right"></i>
+            </a>
+        </section>
+
+        <!-- Habilidades -->
+        <section class="skills section" id="habilidades" aria-labelledby="skills-title">
+            <div class="section-label">
+                <span>04</span>
+                <h2 id="skills-title" data-en="Skills">Habilidades</h2>
+            </div>
+
+            <div class="skills__grid">
+                <article class="skill reveal">
+                    <span class="skill__num">A</span>
+                    <h3>Frontend</h3>
+                    <p data-en="Modern, responsive and accessible interfaces.">Interfaces modernas, responsivas e acessíveis.</p>
+                    <ul><li>HTML5</li><li>CSS3</li><li>JavaScript</li><li>React</li><li>Bootstrap</li><li>Tailwind CSS</li></ul>
+                </article>
+                <article class="skill reveal">
+                    <span class="skill__num">B</span>
+                    <h3>Backend</h3>
+                    <p data-en="APIs, business logic, databases and real-time.">APIs, regras de negócio, bancos de dados e tempo real.</p>
+                    <ul><li>Node.js</li><li>PHP</li><li>Python</li><li>TypeScript</li><li>MySQL</li><li>Oracle</li><li>SQL Server</li><li>WebSocket</li><li>APIs REST</li></ul>
+                </article>
+                <article class="skill reveal">
+                    <span class="skill__num">C</span>
+                    <h3 data-en="Games &amp; tools">Games &amp; ferramentas</h3>
+                    <p data-en="Game development, version control and deploy.">Desenvolvimento de jogos, versionamento e deploy.</p>
+                    <ul><li>Unity</li><li>C#</li><li>Blender</li><li>Git</li><li>GitHub</li><li>Docker</li><li>Vite</li><li>NPM</li><li>Render</li></ul>
+                </article>
+            </div>
+        </section>
+
+        <!-- Contato -->
+        <section class="contact" id="contato" aria-labelledby="contact-title">
+            <div class="contact__inner section">
+                <p class="eyebrow" data-en="05 / Contact">05 / Contato</p>
+                <h2 class="contact__title" id="contact-title" data-en="Let's build<br><em>something.</em>">Vamos criar<br><em>algo juntos.</em></h2>
+                <p class="contact__lead" data-en="I'm always open to new projects, job opportunities and partnerships.">Estou sempre aberto a novos projetos, oportunidades de trabalho e parcerias.</p>
+
+                <div class="contact__links">
+                    <a href="https://www.linkedin.com/in/pedro-rodrigues-059901126/" target="_blank" rel="noopener" data-cursor="Abrir">
+                        <i class="bi bi-linkedin"></i><span>LinkedIn</span><small>Pedro Rodrigues</small><i class="bi bi-arrow-up-right"></i>
+                    </a>
+                    <a href="https://github.com/pedrords3" target="_blank" rel="noopener" data-cursor="Abrir">
+                        <i class="bi bi-github"></i><span>GitHub</span><small>github.com/pedrords3</small><i class="bi bi-arrow-up-right"></i>
+                    </a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- Skills Section -->
-    <section id="skills" class="py-5 bg-light">
-        <div class="container py-5">
-            <h2 class="section-title" data-lang-pt="Minhas Habilidades" data-lang-en="My Skills">Minhas Habilidades</h2>
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <div class="card border-0 shadow-sm h-100 p-4">
-                        <div class="card-body text-center">
-                            <i class="bi bi-laptop display-4 text-secondary mb-3"></i>
-                            <h4 class="card-title" data-lang-pt="Frontend" data-lang-en="Frontend">Frontend</h4>
-                            <p class="card-text" data-lang-pt="Desenvolvimento de interfaces modernas, responsivas e acessíveis." data-lang-en="Development of modern, responsive, and accessible interfaces.">
-                                Desenvolvimento de interfaces modernas, responsivas e acessíveis.
-                            </p>
-                            <div class="mt-3">
-                                <span class="badge bg-secondary me-1 mb-1">HTML5</span>
-                                <span class="badge bg-secondary me-1 mb-1">CSS3</span>
-                                <span class="badge bg-secondary me-1 mb-1">JavaScript</span>
-                                <span class="badge bg-secondary me-1 mb-1">React</span>
-                                <span class="badge bg-secondary me-1 mb-1">Bootstrap</span>
-                                <span class="badge bg-secondary me-1 mb-1">CSS</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card border-0 shadow-sm h-100 p-4">
-                        <div class="card-body text-center">
-                            <i class="bi bi-server display-4 text-secondary mb-3"></i>
-                            <h4 class="card-title" data-lang-pt="Backend" data-lang-en="Backend">Backend</h4>
-                            <p class="card-text" data-lang-pt="Desenvolvimento de APIs, lógica de negócio e banco de dados." data-lang-en="API development, business logic, and databases.">
-                                Desenvolvimento de APIs, lógica de negócio e banco de dados.
-                            </p>
-                            <div class="mt-3">
-                                <span class="badge bg-secondary me-1 mb-1">Node.js</span>
-                                <span class="badge bg-secondary me-1 mb-1">PHP</span>
-                                <span class="badge bg-secondary me-1 mb-1">MySQL</span>
-                                <span class="badge bg-secondary me-1 mb-1">Oracle</span>
-                                <span class="badge bg-secondary me-1 mb-1">SqlServer</span>
-                                <span class="badge bg-secondary me-1 mb-1">WebSocket</span>
-                                <span class="badge bg-secondary me-1 mb-1">APIs REST</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card border-0 shadow-sm h-100 p-4">
-                        <div class="card-body text-center">
-                            <i class="bi bi-tools display-4 text-secondary mb-3"></i>
-                            <h4 class="card-title" data-lang-pt="Ferramentas" data-lang-en="Tools">Ferramentas</h4>
-                            <p class="card-text" data-lang-pt="Ferramentas de desenvolvimento, versionamento e deploy." data-lang-en="Development tools, version control, and deployment.">
-                                Ferramentas de desenvolvimento, versionamento e deploy.
-                            </p>
-                            <div class="mt-3">
-                                <span class="badge bg-secondary me-1 mb-1">Git</span>
-                                <span class="badge bg-secondary me-1 mb-1">GitHub</span>
-                                <span class="badge bg-secondary me-1 mb-1">Vite</span>
-                                <span class="badge bg-secondary me-1 mb-1">NPM</span>
-                                <span class="badge bg-secondary me-1 mb-1">VS Code</span>
-                                <span class="badge bg-secondary me-1 mb-1">Render</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-        <!-- ========== SEÇÃO DE MÚSICA - PROFISSIONAL COM LETRA ========== -->
-    <section id="music" class="py-5">
-        <div class="container py-4">
-            <div class="music-showcase">
-                <!-- Elementos decorativos -->
-                <div class="music-glow"></div>
-                <div class="music-glow-second"></div>
-                
-                <div class="music-content">
-                    <div class="row">
-                        <div class="col-lg-12 text-center mb-4">
-                            <div class="d-flex align-items-center gap-3 justify-content-center">
-                                <div class="music-wave-icon">
-                                    <i class="bi bi-music-note-beamed"></i>
-                                </div>
-                                <span class="music-badge">
-                                    <i class="bi bi-stars"></i>
-                                    <span data-lang-pt="Produção Original" data-lang-en="Original Production">Produção Original</span>
-                                </span>
-                            </div>
-                            <h2 class="display-5 fw-bold mt-3 text-white" data-lang-pt="Minha Criação Musical" data-lang-en="My Musical Creation">
-                                Minha Criação Musical
-                            </h2>
-                            <p class="text-white-50" data-lang-pt="Projeto musical autoral produzido com auxílio de IA, inspirado na atmosfera única da Copa do Mundo." 
-                            data-lang-en="Original musical project produced with AI assistance, inspired by the unique atmosphere of the World Cup.">
-                                Projeto musical autoral produzido com auxílio de IA, inspirado na atmosfera única da Copa do Mundo.
-                            </p>
-                        </div>
-                    </div>
-                    
-                    <div class="row g-4">
-                        <!-- Player e Info -->
-                        <div class="col-lg-5">
-                            <div class="audio-card p-4 h-100">
-                                <div class="text-center mb-4">
-                                    <div class="vinyl-record mx-auto">
-                                        <i class="bi bi-vinyl-fill vinyl-icon"></i>
-                                    </div>
-                                </div>
-                                <h5 class="text-white text-center mb-2">Four Years On</h5>
-                                <p class="text-white-50 small text-center mb-4" data-lang-pt="Experiência imersiva · Estéreo" data-lang-en="Immersive experience · Stereo">Experiência imersiva · Estéreo</p>
-                                
-                                <!-- Player de áudio -->
-                                <audio controls class="custom-audio-player w-100" id="musicPlayer">
-                                    <source src="assets/projetos/musica/Four Years On.mp3" type="audio/mpeg">
-                                    Seu navegador não suporta áudio HTML5.
-                                </audio>
-                                
-                                <div class="d-flex justify-content-between align-items-center mt-4">
-                                    
-                                    <div class="text-white-50 small">
-                                        <i class="bi bi-headphones"></i> 
-                                        <span data-lang-pt="Ouça com fones" data-lang-en="Best with headphones">Ouça com fones</span>
-                                    </div>
-                                </div>
-                                
-                                <!-- Tags -->
-                                <div class="mt-4 d-flex flex-wrap gap-2 justify-content-center">
-                                    <span class="music-tag"><i class="bi bi-soundwave"></i> Suno</span>
-                                    <span class="music-tag"><i class="bi bi-clock"></i> 4:29</span>
-                                    <span class="music-tag"><i class="bi bi-cup-hot"></i> Original</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Letra da Música -->
-                        <div class="col-lg-7">
-                            <div class="lyrics-card">
-                                <div class="lyrics-header">
-                                    <i class="bi bi-chat-quote-fill"></i>
-                                    <span data-lang-pt="Letra da Música" data-lang-en="Lyrics">Letra da Música</span>
-                                    <button class="lyrics-toggle-btn" id="toggleLyricsBtn" title="Expandir/Recolher">
-                                        <i class="bi bi-chevron-down"></i>
-                                    </button>
-                                </div>
-                                <div class="lyrics-content" id="lyricsContent">
-                                    <div class="lyrics-text">
-                                        <div class="lyrics-section">
-                                            <div class="lyrics-label">[Intro]</div>
-                                            <div class="lyrics-line">Ay, ay, ay</div>
-                                            <div class="lyrics-line">Mm, mm, mm</div>
-                                            <div class="lyrics-line">Little voices in the rain</div>
-                                            <div class="lyrics-line">Say our names in different ways</div>
-                                            <div class="lyrics-line">Hands up high, the night begins</div>
-                                            <div class="lyrics-line">Hear the whole world breathe again</div>
-                                        </div>
-                                        
-                                        <div class="lyrics-section">
-                                            <div class="lyrics-label">[Verse 1]</div>
-                                            <div class="lyrics-line">From every street and shore</div>
-                                            <div class="lyrics-line">We came here for one more</div>
-                                            <div class="lyrics-line">A dream stitched in our flags</div>
-                                            <div class="lyrics-line">With dirt on every path</div>
-                                            <div class="lyrics-line">Grandmothers on the screen</div>
-                                            <div class="lyrics-line">Boys with painted faces beam</div>
-                                            <div class="lyrics-line">Tears fall on the corner bar</div>
-                                            <div class="lyrics-line">A nation learns who we are</div>
-                                        </div>
-                                        
-                                        <div class="lyrics-section">
-                                            <div class="lyrics-label">[Pre-Chorus]</div>
-                                            <div class="lyrics-line">Hold your breath</div>
-                                            <div class="lyrics-line">Feel that drum</div>
-                                            <div class="lyrics-line">Every heart</div>
-                                            <div class="lyrics-line">Beats as one</div>
-                                            <div class="lyrics-line">One more step</div>
-                                            <div class="lyrics-line">One more flame</div>
-                                            <div class="lyrics-line">Every kid</div>
-                                            <div class="lyrics-line">Knows the game</div>
-                                        </div>
-                                        
-                                        <div class="lyrics-section highlight-chorus">
-                                            <div class="lyrics-label">[Chorus]</div>
-                                            <div class="lyrics-line">We rise, we rise</div>
-                                            <div class="lyrics-line">Four years on</div>
-                                            <div class="lyrics-line">We cry, we cry</div>
-                                            <div class="lyrics-line">Then sing on strong</div>
-                                            <div class="lyrics-line">One world, one sound</div>
-                                            <div class="lyrics-line">In this moment now</div>
-                                            <div class="lyrics-line">We rise, we rise</div>
-                                            <div class="lyrics-line">The world is ours</div>
-                                        </div>
-                                        
-                                        <div class="lyrics-section">
-                                            <div class="lyrics-label">[Verse 2]</div>
-                                            <div class="lyrics-line">The keeper flies through time</div>
-                                            <div class="lyrics-line">A miracle in one line</div>
-                                            <div class="lyrics-line">A striker turns and runs</div>
-                                            <div class="lyrics-line">Like thunder through the sun</div>
-                                            <div class="lyrics-line">Old legends in the stands</div>
-                                            <div class="lyrics-line">New names in young hands</div>
-                                            <div class="lyrics-line">Every scar, every shout</div>
-                                            <div class="lyrics-line">Turns history inside out</div>
-                                        </div>
-                                        
-                                        <div class="lyrics-section">
-                                            <div class="lyrics-label">[Pre-Chorus]</div>
-                                            <div class="lyrics-line">Hold your breath</div>
-                                            <div class="lyrics-line">Feel that drum</div>
-                                            <div class="lyrics-line">Every heart</div>
-                                            <div class="lyrics-line">Beats as one</div>
-                                            <div class="lyrics-line">One more pass</div>
-                                            <div class="lyrics-line">One more night</div>
-                                            <div class="lyrics-line">Every soul</div>
-                                            <div class="lyrics-line">Chasing light</div>
-                                        </div>
-                                        
-                                        <div class="lyrics-section highlight-chorus">
-                                            <div class="lyrics-label">[Chorus]</div>
-                                            <div class="lyrics-line">We rise, we rise</div>
-                                            <div class="lyrics-line">Four years on</div>
-                                            <div class="lyrics-line">We cry, we cry</div>
-                                            <div class="lyrics-line">Then sing on strong</div>
-                                            <div class="lyrics-line">One world, one sound</div>
-                                            <div class="lyrics-line">In this moment now</div>
-                                            <div class="lyrics-line">We rise, we rise</div>
-                                            <div class="lyrics-line">The world is ours</div>
-                                        </div>
-                                        
-                                        <div class="lyrics-section">
-                                            <div class="lyrics-label">[Bridge]</div>
-                                            <div class="lyrics-line">Ooh, from the alleys to the hills</div>
-                                            <div class="lyrics-line">Ooh, hear the future standing still</div>
-                                            <div class="lyrics-line">Ooh, when the whistle finally calls</div>
-                                            <div class="lyrics-line">We carry all of us</div>
-                                        </div>
-                                        
-                                        <div class="lyrics-section highlight-chorus">
-                                            <div class="lyrics-label">[Final Chorus]</div>
-                                            <div class="lyrics-line">We rise, we rise</div>
-                                            <div class="lyrics-line">Four years on</div>
-                                            <div class="lyrics-line">We cry, we cry</div>
-                                            <div class="lyrics-line">Then sing on strong</div>
-                                            <div class="lyrics-line">One world, one sound</div>
-                                            <div class="lyrics-line">In this moment now</div>
-                                            <div class="lyrics-line">We rise, we rise</div>
-                                            <div class="lyrics-line">The world is ours</div>
-                                            <div class="lyrics-line mt-2">We rise, we rise</div>
-                                            <div class="lyrics-line">Hands in the sky</div>
-                                            <div class="lyrics-line">We cry, we cry</div>
-                                            <div class="lyrics-line">But we feel alive</div>
-                                            <div class="lyrics-line">One world, one sound</div>
-                                            <div class="lyrics-line">Let it shake the ground</div>
-                                            <div class="lyrics-line">We rise, we rise</div>
-                                            <div class="lyrics-line">The world is ours</div>
-                                        </div>
-
-                                         <div class="lyrics-section">
-                                            <div class="lyrics-label">[Outro]</div>
-                                            <div class="lyrics-line">Ay, ay, ay</div>
-                                            <div class="lyrics-line">(We rise, we rise)</div>
-                                            <div class="lyrics-line">Mm, mm, mm</div>
-                                            <div class="lyrics-line">(The world is ours)</div>
-                                            <div class="lyrics-line">Hey, hey, hey</div>
-                                            <div class="lyrics-line">(We rise, we rise)</div>
-                                            <div class="lyrics-line">Oooh-oh-oh</div>
-                                            <div class="lyrics-line">(The world is ours)</div>
-                                        </div>
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Projects Section -->
-    <section id="projects" class="py-5">
-        <div class="container py-5">
-            <h2 class="section-title" data-lang-pt="Meus Projetos" data-lang-en="My Projects">Meus Projetos</h2>
-            <div class="row">
-                <!-- Project 1 - Hextech Solutions -->
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="project-card">
-                        <img src="assets/projetos/hextech/baner.png" class="project-img" alt="Hextech Solutions">
-                        <div class="card-body p-4">
-                            <h4 class="card-title">Hextech Solutions</h4>
-                            <p class="card-text" data-lang-pt="Site institucional da minha empresa, com foco em serviços e contato." data-lang-en="Corporate website for my company, focused on services and contact.">
-                                Site institucional da minha empresa, com foco em serviços e contato.
-                            </p>
-                            <div class="mb-3">
-                                <span class="tech-tag">HTML</span>
-                                <span class="tech-tag">CSS</span>
-                                <span class="tech-tag">Bootstrap</span>
-                                <span class="tech-tag">JavaScript</span>
-                                <span class="tech-tag">PHP</span>
-                            </div>
-                            <button class="btn btn-outline-secondary view-media-btn" 
-                                    data-project="hextech" 
-                                    data-project-name="Hextech Solutions"
-                                    data-lang-pt="Ver Mídias"
-                                    data-lang-en="View Media">
-                                Ver Mídias
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Project 2 - Tegebras -->
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="project-card">
-                        <img src="assets/projetos/tecgebras/baner.png" class="project-img" alt="Tegebras Grupo Geradores">
-                        <div class="card-body p-4">
-                            <h4>Tegebras Grupo Geradores</h4>
-                            <p class="card-text" data-lang-pt="Site institucional moderno com foco na apresentação dos serviços e contato da empresa." data-lang-en="Modern corporate website focused on presenting company services and contact information.">
-                                Site institucional moderno com foco na apresentação dos serviços e contato da empresa.
-                            </p>
-                            <div class="mb-3">
-                                <span class="tech-tag">HTML</span>
-                                <span class="tech-tag">CSS</span>
-                                <span class="tech-tag">Bootstrap</span>
-                                <span class="tech-tag">PHP</span>
-                            </div>
-                            <a href="https://www.tecgebras.com.br/" target="_blank" class="btn btn-outline-secondary" data-lang-pt="Ver Projeto" data-lang-en="View Project">Ver Projeto</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Project 3 - Controle Financeiro -->
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="project-card">
-                        <img src="assets/projetos/controleFinanceiro/baner.png" class="project-img" alt="Controle Financeiro Online">
-                        <div class="card-body p-4">
-                            <h4 data-lang-pt="Controle financeiro" data-lang-en="Financial Control">Controle Financeiro Online</h4>
-                            <p class="card-text" data-lang-pt="Site para controlar suas finanças pessoais e empresariais." data-lang-en="Website for managing your personal and business finances.">
-                                Site para controlar suas finanças pessoais e empresariais.
-                            </p>
-                            <div class="mb-3">
-                                <span class="tech-tag">HTML</span>
-                                <span class="tech-tag">CSS</span>
-                                <span class="tech-tag">Bootstrap</span>
-                                <span class="tech-tag">JavaScript</span>
-                            </div>
-                            <a href="https://pedrords3.github.io/financa-simples/" target="_blank" class="btn btn-outline-secondary" data-lang-pt="Ver Projeto" data-lang-en="View Project">Ver Projeto</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 4 - Karaoke -->
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="project-card">
-                        <img src="assets/projetos/karaoke/baner.png" class="project-img" alt="Karaoke">
-                        <div class="card-body p-4">
-                            <h4 data-lang-pt="Karaoke" data-lang-en="Karaoke">Karaoke</h4>
-                            <p class="card-text" data-lang-pt="Site para tocar karaoke online." data-lang-en="Website for playing online karaoke.">
-                                Site para tocar karaoke online.
-                            </p>
-                            <div class="mb-3">
-                                <span class="tech-tag">HTML</span>
-                                <span class="tech-tag">CSS</span>
-                                <span class="tech-tag">Bootstrap</span>
-                                <span class="tech-tag">JavaScript</span>
-                                <span class="tech-tag">PHP</span>
-                                <span class="tech-tag">JSON</span>
-                            </div>
-                            <button class="btn btn-outline-secondary view-media-btn" 
-                                    data-project="karaoke" 
-                                    data-project-name="Karaoke"
-                                    data-lang-pt="Ver Mídias"
-                                    data-lang-en="View Media">
-                                Ver Mídias
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Project 5 - Agenda Clínica -->
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="project-card">
-                        <img src="assets/projetos/agendaClinica/baner.png" class="project-img" alt="Agenda Clínica">
-                        <div class="card-body p-4">
-                            <h4 data-lang-pt="Agenda Clínica" data-lang-en="Clinic Agenda">Agenda Clínica</h4>
-                            <p class="card-text" data-lang-pt="Site para agendar consultas clínicas." data-lang-en="Website for scheduling clinic appointments.">
-                                Site para agendar consultas clínicas.
-                            </p>
-                            <div class="mb-3">
-                                <span class="tech-tag">HTML</span>
-                                <span class="tech-tag">CSS</span>
-                                <span class="tech-tag">Bootstrap</span>
-                                <span class="tech-tag">JavaScript</span>
-                                <span class="tech-tag">PHP</span>
-                                <span class="tech-tag">mySQL</span>
-                            </div>
-                            <button class="btn btn-outline-secondary view-media-btn" 
-                                    data-project="agendaClinica" 
-                                    data-project-name="Agenda Clínica"
-                                    data-lang-pt="Ver Mídias"
-                                    data-lang-en="View Media">
-                                Ver Mídias
-                            </button>
-                        </div>
-                    </div>
-                </div>
-               
-                <!-- Project 6 - Corporativos -->
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="project-card">
-                        <img src="assets/projetos/corporativos/baner.png" class="project-img" alt="Corporativos">
-                        <div class="card-body p-4">
-                            <h4 data-lang-pt="Corporativos" data-lang-en="Corporate">Projetos Corporativos</h4>
-                            <p class="card-text" data-lang-pt="Projetos desenvolvidos." data-lang-en="Developed projects.">
-                               Projetos desenvolvidos.
-                            </p>
-                            <div class="mb-3">
-                                <span class="tech-tag">HTML</span>
-                                <span class="tech-tag">CSS</span>
-                                <span class="tech-tag">Bootstrap</span>
-                                <span class="tech-tag">JavaScript</span>
-                                <span class="tech-tag">PHP</span>
-                                <span class="tech-tag">JSON</span>
-                                <span class="tech-tag">React</span>
-                                <span class="tech-tag">Python</span>
-                            </div>
-                            <button class="btn btn-outline-secondary view-media-btn" 
-                                    data-project="corporativos" 
-                                    data-project-name="Projetos Corporativos"
-                                    data-lang-pt="Ver Mídias"
-                                    data-lang-en="View Media">
-                                Ver Mídias
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="text-center mt-5">
-                <p class="lead" data-lang-pt="Confira mais projetos no meu GitHub!" data-lang-en="Check out more projects on my GitHub!">Confira mais projetos no meu GitHub!</p>
-                <a href="https://github.com/pedrords3" target="_blank" class="btn btn-primary-custom">
-                    <i class="bi bi-github me-2"></i>
-                    <span data-lang-pt="Visitar GitHub" data-lang-en="Visit GitHub">Visitar GitHub</span>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact-section">
-        <div class="container py-5">
-            <h2 class="section-title" data-lang-pt="Contato" data-lang-en="Contact">Contato</h2>
-            <div class="row">
-                <div class="col-lg-8 mx-auto">
-                    <p class="text-center mb-5" data-lang-pt="Estou sempre aberto a discutir novos projetos, oportunidades de trabalho ou parcerias." data-lang-en="I'm always open to discussing new projects, job opportunities, or partnerships.">
-                        Estou sempre aberto a discutir novos projetos, oportunidades de trabalho ou parcerias.
-                    </p>
-                    
-                    <div class="row mb-5">
-                        <div class="col-md-6 text-center mb-4">
-                            <div class="p-4 bg-white rounded shadow-sm">
-                                <i class="bi bi-linkedin text-secondary display-6 mb-3"></i>
-                                <h5>LinkedIn</h5>
-                                <a href="https://www.linkedin.com/in/pedro-rodrigues-059901126/" target="_blank" class="mb-0 text-decoration-none">Pedro Rodrigues</a>
-                            </div>
-                        </div>
-                        <div class="col-md-6 text-center mb-4">
-                            <div class="p-4 bg-white rounded shadow-sm">
-                                <i class="bi bi-github text-secondary display-6 mb-3"></i>
-                                <h5>GitHub</h5>
-                                <a href="https://github.com/pedrords3" target="_blank" class="mb-0 text-decoration-none">github.com/pedrords3</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
+    <!-- Rodapé com a música (discreta) -->
     <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                    <h5>Pedro Rodrigues</h5>
-                    <p data-lang-pt="Desenvolvedor Web Fullstack" data-lang-en="Fullstack Web Developer">Desenvolvedor Web Fullstack</p>
-                </div>
-                <div class="col-md-6 text-center text-md-end">
-                    <div class="mb-3">
-                        <a href="https://github.com/pedrords3" target="_blank" class="text-white me-3">
-                            <i class="bi bi-github fs-4"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/in/pedro-rodrigues-059901126/" target="_blank" class="text-white me-3">
-                            <i class="bi bi-linkedin fs-4"></i>
-                        </a>
-                    </div>
-                    <p class="mb-0" data-lang-pt="© 2026 Pedro Rodrigues. Todos os direitos reservados." data-lang-en="© 2026 Pedro Rodrigues. All rights reserved.">
-                        © 2026 Pedro Rodrigues. Todos os direitos reservados.
-                    </p>
-                </div>
+        <div class="track">
+            <button class="track__play" type="button" aria-label="Tocar Four Years On">
+                <i class="bi bi-play-fill"></i>
+            </button>
+            <div class="track__info">
+                <span class="track__kicker" data-en="Side project · original track made with AI">Projeto paralelo · faixa autoral feita com IA</span>
+                <span class="track__title">Four Years On <em>· 4:29</em></span>
             </div>
+            <span class="track__bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+            <button class="track__lyrics" type="button" data-en="Lyrics">Letra</button>
+            <div class="track__progress" aria-hidden="true"><i></i></div>
+            <audio id="musicPlayer" preload="none" src="assets/audio/four-years-on.mp3"></audio>
+        </div>
+
+        <div class="footer__bottom">
+            <p data-en="© 2026 Pedro Rodrigues. All rights reserved.">© 2026 Pedro Rodrigues. Todos os direitos reservados.</p>
+            <a href="#inicio" class="to-top"><span data-en="Back to top">Voltar ao topo</span> <i class="bi bi-arrow-up"></i></a>
         </div>
     </footer>
 
-    <!-- Bootstrap JS Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <script>
-        // Dados das mídias por projeto
-        const projectMedia = {
-            'hextech': [
-                {
-                    type: 'video',
-                    title: 'Apresentação do Site',
-                    description: 'Visão geral completa do site institucional da Hextech Solutions',
-                    path: 'assets/projetos/hextech/HexTech.mp4',
-                    thumbnail: 'assets/projetos/hextech/baner.png'
-                }
-            ],
-            'karaoke': [
-                {
-                    type: 'video',
-                    title: 'Demonstração do Karaoke',
-                    description: 'Visão geral do sistema de karaoke online',
-                    path: 'assets/projetos/karaoke/apresentacao.mp4',
-                    thumbnail: 'assets/projetos/karaoke/baner.png'
-                },
-                {
-                    type: 'video',
-                    title: 'Outra demonstração',
-                    description: 'Outra apresentação do sistema',
-                    path: 'assets/projetos/karaoke/apresentacao2.mp4',
-                    thumbnail: 'assets/projetos/karaoke/baner.png'
-                }
-            ],
-            'corporativos': [
-                // {
-                //     type: 'video',
-                //     title: 'Intranet Corporativa',
-                //     description: 'Sistema de intranet corporativa desenvolvido',
-                //     path: 'assets/projetos/corporativos/Intranet/apresentacao.mp4',
-                //     thumbnail: 'assets/projetos/corporativos/Intranet/inicio.png'
-                // },
-                // {
-                //     type: 'video',
-                //     title: 'Tech Health',
-                //     description: 'Sistema de automação para saúde',
-                //     path: 'assets/projetos/corporativos/TechHealth/apresentacao_.mp4',
-                //     thumbnail: 'assets/projetos/corporativos/TechHealth/Dashboard.png'
-                // },
-                {
-                    type: 'image',
-                    title: 'Tech Health',
-                    description: 'Sistema de automação para saúde',
-                    path: 'assets/projetos/corporativos/TechHealth/Dashboard.png',
-                    thumbnail: 'assets/projetos/corporativos/TechHealth/Dashboard.png'
-                },
-                {
-                    type: 'image',
-                    title: 'Assinatura de Email - Tela Principal',
-                    description: 'Interface principal do sistema de geração de assinaturas de email',
-                    path: 'assets/projetos/corporativos/Assinatura/Assinatura.png',
-                    thumbnail: 'assets/projetos/corporativos/Assinatura/Assinatura.png'
-                },
-                {
-                    type: 'image',
-                    title: 'Assinatura de Email - Visualização',
-                    description: 'Visualização da assinatura gerada',
-                    path: 'assets/projetos/corporativos/Assinatura/AssinaturaView.png',
-                    thumbnail: 'assets/projetos/corporativos/Assinatura/AssinaturaView.png'
-                }
-            ],
-            'agendaClinica': [
-                {
-                    type: 'video',
-                    title: 'Demonstração da Agenda Clínica',
-                    description: 'Visão geral do sistema de agendamento de consultas clínicas',
-                    path: 'assets/projetos/agendaClinica/apresentacao.mp4',
-                    thumbnail: 'assets/projetos/agendaClinica/baner.png'
-                }
-
-            ]
-        };
-
-        // Variáveis globais
-        let currentLang = 'pt';
-        const langToggle = document.getElementById('langToggle');
-        let currentProject = '';
-        let currentMediaIndex = 0;
-        let currentFilter = 'all';
-
-        // Inicialização
-        document.addEventListener('DOMContentLoaded', function() {
-            // Configurar botões de mídia
-            setupMediaButtons();
-            
-            // Configurar botão de idioma
-            langToggle.addEventListener('click', toggleLanguage);
-            
-            // Configurar smooth scrolling
-            setupSmoothScrolling();
-            
-            // Configurar navegação ativa
-            window.addEventListener('scroll', updateActiveNav);
-            
-            // Configurar filtros
-            setupFilters();
-            
-            // Fechar mídia quando modal é fechado
-            const modal = document.getElementById('projectMediaModal');
-            modal.addEventListener('hidden.bs.modal', function() {
-                const mediaContainer = document.getElementById('mainMediaContainer');
-                mediaContainer.innerHTML = '';
-                currentMediaIndex = 0;
-                currentFilter = 'all';
-                
-                // Resetar filtros
-                document.getElementById('filterAll').classList.add('active');
-                document.getElementById('filterVideos').classList.remove('active');
-                document.getElementById('filterImages').classList.remove('active');
-            });
-        });
-
-        // Configurar botões de mídia
-        function setupMediaButtons() {
-            document.querySelectorAll('.view-media-btn').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const project = this.getAttribute('data-project');
-                    const projectName = this.getAttribute('data-project-name');
-                    openMediaModal(project, projectName);
-                });
-            });
-        }
-
-        // Configurar filtros
-        function setupFilters() {
-            document.getElementById('filterAll').addEventListener('click', function() {
-                setFilter('all');
-            });
-            
-            document.getElementById('filterVideos').addEventListener('click', function() {
-                setFilter('video');
-            });
-            
-            document.getElementById('filterImages').addEventListener('click', function() {
-                setFilter('image');
-            });
-        }
-
-        // Definir filtro ativo
-        function setFilter(filterType) {
-            currentFilter = filterType;
-            
-            // Atualizar botões ativos
-            document.getElementById('filterAll').classList.remove('active');
-            document.getElementById('filterVideos').classList.remove('active');
-            document.getElementById('filterImages').classList.remove('active');
-            
-            if (filterType === 'all') {
-                document.getElementById('filterAll').classList.add('active');
-            } else if (filterType === 'video') {
-                document.getElementById('filterVideos').classList.add('active');
-            } else if (filterType === 'image') {
-                document.getElementById('filterImages').classList.add('active');
-            }
-            
-            // Atualizar lista de mídias
-            updateMediaList();
-        }
-
-        // Abrir modal de mídias
-        function openMediaModal(project, projectName) {
-            currentProject = project;
-            currentMediaIndex = 0;
-            currentFilter = 'all';
-            
-            // Atualizar título do modal
-            const modalTitle = document.getElementById('projectMediaModalLabel');
-            modalTitle.textContent = `${projectName} - Mídias`;
-            
-            // Carregar mídias do projeto
-            const media = projectMedia[project] || [];
-            
-            // Atualizar lista de mídias
-            updateMediaList();
-            
-            // Carregar primeira mídia
-            if (media.length > 0) {
-                loadMedia(0);
-            }
-            
-            // Mostrar modal
-            const modal = new bootstrap.Modal(document.getElementById('projectMediaModal'));
-            modal.show();
-        }
-
-        // Atualizar lista de mídias
-        function updateMediaList() {
-            const media = projectMedia[currentProject] || [];
-            const filteredMedia = media.filter(item => {
-                if (currentFilter === 'all') return true;
-                return item.type === currentFilter;
-            });
-            
-            // Limpar conteúdo anterior
-            const mediaList = document.getElementById('mediaList');
-            mediaList.innerHTML = '';
-            
-            // Adicionar mídias à lista
-            filteredMedia.forEach((item, index) => {
-                // Encontrar o índice original no array completo
-                const originalIndex = media.findIndex(m => 
-                    m.path === item.path && m.type === item.type
-                );
-                
-                const mediaItem = createMediaThumbnail(item, originalIndex);
-                mediaList.appendChild(mediaItem);
-            });
-            
-            // Atualizar contador
-            const mediaCount = document.createElement('div');
-            mediaCount.className = 'text-muted small mt-2 text-center';
-            mediaCount.innerHTML = `<i class="bi bi-collection me-1"></i> ${filteredMedia.length} mídia${filteredMedia.length !== 1 ? 's' : ''}`;
-            mediaList.appendChild(mediaCount);
-        }
-
-        // Criar thumbnail de mídia
-        function createMediaThumbnail(media, index) {
-            const div = document.createElement('div');
-            div.className = 'media-thumbnail';
-            div.setAttribute('data-index', index);
-            div.setAttribute('data-type', media.type);
-            
-            // Ícone baseado no tipo
-            const iconClass = media.type === 'video' ? 'bi-play-fill' : 'bi-image';
-            
-            div.innerHTML = `
-                <img src="${media.thumbnail}" alt="${media.title}">
-                <div class="media-type-icon">
-                    <i class="bi ${iconClass}"></i>
+    <!-- Modal de mídias -->
+    <dialog class="media-dialog" id="mediaDialog" aria-labelledby="mediaDialogTitle">
+        <div class="dialog-head">
+            <h3 id="mediaDialogTitle"></h3>
+            <button class="icon-btn" type="button" data-close aria-label="Fechar"><i class="bi bi-x-lg"></i></button>
+        </div>
+        <div class="media-dialog__body">
+            <div class="media-stage" id="mediaStage"></div>
+            <div class="media-side">
+                <div class="media-info">
+                    <span class="media-info__type" id="mediaType"></span>
+                    <h4 id="mediaTitle"></h4>
+                    <p id="mediaDescription"></p>
                 </div>
-                <div class="media-title">${media.title}</div>
-            `;
-            
-            div.addEventListener('click', function() {
-                const index = parseInt(this.getAttribute('data-index'));
-                loadMedia(index);
-            });
-            
-            return div;
-        }
+                <div class="media-filters" role="group" aria-label="Filtro">
+                    <button type="button" class="is-active" data-filter="all" data-en="All">Todas</button>
+                    <button type="button" data-filter="video" data-en="Videos">Vídeos</button>
+                    <button type="button" data-filter="image" data-en="Images">Imagens</button>
+                </div>
+                <div class="media-thumbs" id="mediaThumbs"></div>
+            </div>
+        </div>
+    </dialog>
 
-        // Carregar mídia principal
-        function loadMedia(index) {
-            const mediaArray = projectMedia[currentProject];
-            if (!mediaArray || index >= mediaArray.length) return;
-            
-            currentMediaIndex = index;
-            const media = mediaArray[index];
-            
-            // Atualizar container de mídia principal
-            const mediaContainer = document.getElementById('mainMediaContainer');
-            
-            if (media.type === 'video') {
-                mediaContainer.innerHTML = `
-                    <div class="video-container-outer">
-                        <div class="video-container-inner">
-                            <video controls autoplay class="w-100 h-100">
-                                <source src="${media.path}" type="video/mp4">
-                                <p data-lang-pt="Seu navegador não suporta vídeos HTML5." data-lang-en="Your browser does not support HTML5 video.">
-                                    Seu navegador não suporta vídeos HTML5.
-                                </p>
-                            </video>
-                        </div>
-                    </div>
-                `;
-                
-                // Configurar auto-play para o vídeo
-                const video = mediaContainer.querySelector('video');
-                if (video) {
-                    video.play().catch(e => console.log("Auto-play não permitido:", e));
-                }
-            } else {
-                mediaContainer.innerHTML = `
-                    <div class="image-container">
-                        <img src="${media.path}" alt="${media.title}" class="img-fluid rounded main-image" 
-                             style="cursor: pointer; max-height: 500px; object-fit: contain;" 
-                             onclick="openFullscreenImage('${media.path}', '${media.title}')">
-                        <div class="image-controls mt-2">
-                            <button class="btn btn-sm btn-outline-secondary" onclick="openFullscreenImage('${media.path}', '${media.title}')">
-                                <i class="bi bi-arrows-fullscreen me-1"></i>
-                                <span data-lang-pt="Tela Cheia" data-lang-en="Fullscreen">Tela Cheia</span>
-                            </button>
-                            <button class="btn btn-sm btn-outline-secondary" onclick="downloadImage('${media.path}', '${media.title}')">
-                                <i class="bi bi-download me-1"></i>
-                                <span data-lang-pt="Download" data-lang-en="Download">Download</span>
-                            </button>
-                        </div>
-                    </div>
-                `;
-            }
-            
-            // Atualizar informações da mídia
-            document.getElementById('currentMediaTitle').textContent = media.title;
-            document.getElementById('currentMediaDescription').textContent = media.description;
-            
-            // Atualizar badge do tipo
-            const typeBadge = document.getElementById('mediaTypeBadge');
-            if (media.type === 'video') {
-                typeBadge.innerHTML = '<span class="badge bg-danger"><i class="bi bi-play-circle me-1"></i> Vídeo</span>';
-                typeBadge.setAttribute('data-lang-pt', 'Vídeo');
-                typeBadge.setAttribute('data-lang-en', 'Video');
-            } else {
-                typeBadge.innerHTML = '<span class="badge bg-info"><i class="bi bi-image me-1"></i> Imagem</span>';
-                typeBadge.setAttribute('data-lang-pt', 'Imagem');
-                typeBadge.setAttribute('data-lang-en', 'Image');
-            }
-            
-            // Destacar thumbnail ativa
-            document.querySelectorAll('.media-thumbnail').forEach((thumb, i) => {
-                const thumbIndex = parseInt(thumb.getAttribute('data-index'));
-                if (thumbIndex === index) {
-                    thumb.style.boxShadow = '0 0 0 2px var(--secondary-color)';
-                } else {
-                    thumb.style.boxShadow = 'none';
-                }
-            });
-            
-            // Atualizar idioma dos controles
-            updateLanguage();
-        }
+    <!-- Modal da letra -->
+    <dialog class="lyrics-dialog" id="lyricsDialog" aria-labelledby="lyricsTitle">
+        <div class="dialog-head">
+            <div>
+                <p class="eyebrow" data-en="Original production · Suno">Produção original · Suno</p>
+                <h3 id="lyricsTitle">Four Years On</h3>
+            </div>
+            <button class="icon-btn" type="button" data-close aria-label="Fechar"><i class="bi bi-x-lg"></i></button>
+        </div>
+        <p class="lyrics-dialog__about" data-en="Original musical project produced with AI assistance, inspired by the unique atmosphere of the World Cup.">Projeto musical autoral produzido com auxílio de IA, inspirado na atmosfera única da Copa do Mundo.</p>
+        <div class="lyrics">
+            <section><h5>Intro</h5><p>Ay, ay, ay<br>Mm, mm, mm<br>Little voices in the rain<br>Say our names in different ways<br>Hands up high, the night begins<br>Hear the whole world breathe again</p></section>
+            <section><h5>Verse 1</h5><p>From every street and shore<br>We came here for one more<br>A dream stitched in our flags<br>With dirt on every path<br>Grandmothers on the screen<br>Boys with painted faces beam<br>Tears fall on the corner bar<br>A nation learns who we are</p></section>
+            <section><h5>Pre-Chorus</h5><p>Hold your breath<br>Feel that drum<br>Every heart<br>Beats as one<br>One more step<br>One more flame<br>Every kid<br>Knows the game</p></section>
+            <section class="is-chorus"><h5>Chorus</h5><p>We rise, we rise<br>Four years on<br>We cry, we cry<br>Then sing on strong<br>One world, one sound<br>In this moment now<br>We rise, we rise<br>The world is ours</p></section>
+            <section><h5>Verse 2</h5><p>The keeper flies through time<br>A miracle in one line<br>A striker turns and runs<br>Like thunder through the sun<br>Old legends in the stands<br>New names in young hands<br>Every scar, every shout<br>Turns history inside out</p></section>
+            <section><h5>Pre-Chorus</h5><p>Hold your breath<br>Feel that drum<br>Every heart<br>Beats as one<br>One more pass<br>One more night<br>Every soul<br>Chasing light</p></section>
+            <section class="is-chorus"><h5>Chorus</h5><p>We rise, we rise<br>Four years on<br>We cry, we cry<br>Then sing on strong<br>One world, one sound<br>In this moment now<br>We rise, we rise<br>The world is ours</p></section>
+            <section><h5>Bridge</h5><p>Ooh, from the alleys to the hills<br>Ooh, hear the future standing still<br>Ooh, when the whistle finally calls<br>We carry all of us</p></section>
+            <section class="is-chorus"><h5>Final Chorus</h5><p>We rise, we rise<br>Four years on<br>We cry, we cry<br>Then sing on strong<br>One world, one sound<br>In this moment now<br>We rise, we rise<br>The world is ours</p><p>We rise, we rise<br>Hands in the sky<br>We cry, we cry<br>But we feel alive<br>One world, one sound<br>Let it shake the ground<br>We rise, we rise<br>The world is ours</p></section>
+            <section><h5>Outro</h5><p>Ay, ay, ay<br>(We rise, we rise)<br>Mm, mm, mm<br>(The world is ours)<br>Hey, hey, hey<br>(We rise, we rise)<br>Oooh-oh-oh<br>(The world is ours)</p></section>
+        </div>
+    </dialog>
 
-        // Abrir imagem em tela cheia
-        function openFullscreenImage(imageSrc, imageTitle) {
-            const fullscreenImage = document.getElementById('fullscreenImage');
-            fullscreenImage.src = imageSrc;
-            fullscreenImage.alt = imageTitle;
-            
-            const modal = new bootstrap.Modal(document.getElementById('fullscreenImageModal'));
-            modal.show();
-        }
-
-        // Download de imagem
-        function downloadImage(imageSrc, imageTitle) {
-            const link = document.createElement('a');
-            link.href = imageSrc;
-            link.download = imageTitle.replace(/[^a-z0-9]/gi, '_').toLowerCase() + '.png';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        }
-
-        // Alternar idioma
-        function toggleLanguage() {
-            currentLang = currentLang === 'pt' ? 'en' : 'pt';
-            langToggle.textContent = currentLang === 'pt' ? 'BR' : 'EN';
-            updateLanguage();
-        }
-
-        // Atualizar idioma
-        function updateLanguage() {
-            // Atualizar todos os elementos com data-lang
-            document.querySelectorAll('[data-lang-pt]').forEach(element => {
-                if (currentLang === 'pt') {
-                    element.textContent = element.getAttribute('data-lang-pt');
-                } else {
-                    element.textContent = element.getAttribute('data-lang-en');
-                }
-            });
-            
-            // Atualizar títulos dos modais se estiverem abertos
-            const modal = document.getElementById('projectMediaModal');
-            if (modal.classList.contains('show')) {
-                const modalTitle = document.getElementById('projectMediaModalLabel');
-                const projectName = modalTitle.textContent.split(' - ')[0];
-                modalTitle.textContent = currentLang === 'pt' 
-                    ? `${projectName} - Mídias` 
-                    : `${projectName} - Media`;
-                
-                // Atualizar botão de fechar
-                const closeBtn = document.querySelector('#projectMediaModal .btn-secondary');
-                closeBtn.textContent = currentLang === 'pt' ? 'Fechar' : 'Close';
-                
-                // Atualizar filtros
-                document.getElementById('filterAll').textContent = currentLang === 'pt' ? 'Todas' : 'All';
-                document.getElementById('filterVideos').textContent = currentLang === 'pt' ? 'Vídeos' : 'Videos';
-                document.getElementById('filterImages').textContent = currentLang === 'pt' ? 'Imagens' : 'Images';
-                
-                // Atualizar badge do tipo
-                const typeBadge = document.getElementById('mediaTypeBadge');
-                if (typeBadge) {
-                    const badgeContent = typeBadge.getAttribute('data-lang-pt');
-                    if (badgeContent) {
-                        typeBadge.querySelector('.badge').innerHTML = currentLang === 'pt'
-                            ? `<i class="bi ${typeBadge.querySelector('i').className.split(' ')[1]} me-1"></i> ${badgeContent}`
-                            : `<i class="bi ${typeBadge.querySelector('i').className.split(' ')[1]} me-1"></i> ${typeBadge.getAttribute('data-lang-en')}`;
-                    }
-                }
-                
-                // Atualizar botões de imagem
-                const imageButtons = document.querySelectorAll('.image-controls button span');
-                imageButtons.forEach(btn => {
-                    if (btn.getAttribute('data-lang-pt')) {
-                        btn.textContent = currentLang === 'pt' 
-                            ? btn.getAttribute('data-lang-pt') 
-                            : btn.getAttribute('data-lang-en');
-                    }
-                });
-            }
-            
-            // Atualizar modal de tela cheia
-            const fullscreenModal = document.getElementById('fullscreenImageModal');
-            if (fullscreenModal.classList.contains('show')) {
-                const closeBtn = fullscreenModal.querySelector('.btn-outline-light');
-                closeBtn.textContent = currentLang === 'pt' ? 'Fechar' : 'Close';
-            }
-        }
-
-        // Configurar smooth scrolling
-        function setupSmoothScrolling() {
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    const targetId = this.getAttribute('href');
-                    if(targetId === '#') return;
-                    
-                    const targetElement = document.querySelector(targetId);
-                    if(targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 70,
-                            behavior: 'smooth'
-                        });
-                        
-                        // Fechar menu mobile se aberto
-                        const navbarCollapse = document.getElementById('navbarNav');
-                        if(navbarCollapse.classList.contains('show')) {
-                            new bootstrap.Collapse(navbarCollapse).toggle();
-                        }
-                    }
-                });
-            });
-        }
-
-        // Atualizar navegação ativa
-        function updateActiveNav() {
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
-            
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - 100;
-                const sectionHeight = section.clientHeight;
-                if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
-                    current = section.getAttribute('id');
-                }
-            });
-            
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
-                }
-            });
-        }
-    </script>
+    <noscript><style>body{overflow:auto!important}.intro{display:none}.reveal,.hero-fade,.split-char{opacity:1!important;transform:none!important}</style></noscript>
 </body>
 </html>

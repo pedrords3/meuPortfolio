@@ -8,7 +8,7 @@ const projectMedia = {
         {
             type: 'image',
             title: { pt: 'Quiosque da Praia', en: 'Beach kiosk' },
-            description: { pt: 'Versão 1.0: mesa cheia com 12 jogadores, cartas na mão e água de coco na mesa.', en: 'Version 1.0: a full table of 12 players, cards in hand and coconut water on the table.' },
+            description: { pt: 'Mesa cheia com 12 jogadores, cartas na mão e água de coco na mesa.', en: 'A full table of 12 players, cards in hand and coconut water on the table.' },
             path: SEM_CONTEXTO + 'telas/mesa-praia.jpg'
         },
         {

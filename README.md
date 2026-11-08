@@ -16,10 +16,9 @@ assets/
   audio/four-years-on.mp3      música autoral (player discreto no rodapé)
   projetos/<projeto>/          banners, prints e vídeos de cada projeto
   projetos/sem-contexto/
-    telas/                     prints da versão atual (1.0)
+    telas/                     prints da versão para PC
     evolucao/                  prints do protótipo e do desenvolvimento
     video/                     vídeo dos bastidores no editor + capa
-    expressoes/                close-ups das expressões (bolinhas abaixo do título)
 ```
 
 Os originais em alta resolução ficam em `SemContexto Midias/`, que está no `.gitignore` e não vai para o site.
@@ -36,22 +35,11 @@ Edite `assets/js/projetos.js`. Cada item tem `type` (`'video'` ou `'image'`), `t
 `description` em `{ pt, en }`, `path` e, para vídeos, `thumbnail`. O botão que abre a galeria
 usa `data-project="<chave>"`.
 
-## Sem Contexto 3D: navegador e download
+## Sem Contexto
 
-A versão para navegador fica em https://sem-contexto.onrender.com/ (o botão "Jogar no navegador").
+O jogo tem site próprio: **https://pedrords3.github.io/sem-contexto/**. É de lá que os jogadores
+abrem a versão web e baixam a versão para PC, então o portfólio só aponta para esse site
+(botão "Conhecer o jogo") e mostra os prints e os bastidores do desenvolvimento.
 
-O jogo (~109 MB) é grande demais para ficar no repositório (limite de 100 MB por arquivo),
-então ele é publicado como **GitHub Release**. O botão do site aponta para:
-
-```
-https://github.com/pedrords3/meuPortfolio/releases/latest/download/SemContexto3D-Windows.zip
-```
-
-Esse link sempre baixa o arquivo da release mais recente. Para publicar uma versão nova:
-
-1. Gere o build na Unity e compacte a pasta `SemContexto3D` (sem a pasta
-   `SemContexto3D_BackUpThisFolder_ButDontShipItWithYourGame`) como `SemContexto3D-Windows.zip`.
-   No Windows, `tar -a -c -f SemContexto3D-Windows.zip SemContexto3D` gera um zip padrão.
-2. Em **github.com/pedrords3/meuPortfolio → Releases → Draft a new release**, crie uma tag
-   (ex.: `v0.2.0`), escreva as notas e anexe o zip **com exatamente esse nome**.
-3. Publique. Se o tamanho mudar bastante, atualize o "109 MB" no `index.html`.
+A release `v1.0.0` deste repositório (`SemContexto3D-Windows.zip`) continua publicada, mas o
+portfólio não aponta mais para ela.
